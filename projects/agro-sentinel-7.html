@@ -1,0 +1,821 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ursus Agro-Sentinel 7" | Karta Projektu</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #0a0d14;
+            --bg-secondary: #121722;
+            --bg-card: #182030;
+            --accent: #10b981;
+            --accent-glow: rgba(16, 185, 129, 0.25);
+            --accent-blue: #3b82f6;
+            --accent-orange: #f59e0b;
+            --text-primary: #f3f4f6;
+            --text-secondary: #9ca3af;
+            --text-muted: #6b7280;
+            --border: #232d42;
+            --border-light: rgba(255, 255, 255, 0.08);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        header {
+            background-color: rgba(18, 23, 34, 0.9);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 1rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .back-link {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            font-weight: 600;
+            transition: color 0.2s;
+        }
+
+        .back-link:hover {
+            color: var(--accent);
+        }
+
+        .lang-switcher {
+            display: flex;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 3px;
+            gap: 2px;
+        }
+
+        .lang-btn {
+            background: transparent;
+            border: none;
+            color: var(--text-secondary);
+            padding: 6px 12px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            border-radius: 7px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+
+        .lang-btn:hover {
+            color: var(--text-primary);
+        }
+
+        .lang-btn.active {
+            background: var(--accent);
+            color: #062b1e;
+            box-shadow: 0 0 10px var(--accent-glow);
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 2.5rem 1.5rem 5rem;
+        }
+
+        /* Hero */
+        .project-hero {
+            background: linear-gradient(180deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 2.5rem;
+            margin-bottom: 2.5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle at top right, var(--accent-glow), transparent 70%);
+            pointer-events: none;
+        }
+
+        .project-tags {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            margin-bottom: 1rem;
+        }
+
+        .tag {
+            background: rgba(16, 185, 129, 0.12);
+            color: var(--accent);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            font-size: 0.75rem;
+            font-family: 'JetBrains Mono', monospace;
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-weight: 600;
+        }
+
+        .project-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            margin-bottom: 0.75rem;
+            line-height: 1.2;
+        }
+
+        .project-subtitle {
+            font-size: 1.15rem;
+            color: var(--text-secondary);
+            max-width: 850px;
+            line-height: 1.5;
+            margin-bottom: 2rem;
+        }
+
+        .quick-metrics {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1rem;
+            border-top: 1px solid var(--border);
+            padding-top: 1.5rem;
+        }
+
+        .metric-box {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .metric-label {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+        }
+
+        .metric-val {
+            font-size: 1.35rem;
+            font-weight: 700;
+            color: var(--accent);
+            font-family: 'JetBrains Mono', monospace;
+            margin-top: 4px;
+        }
+
+        /* Section Cards */
+        .section-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .section-heading {
+            font-size: 1.35rem;
+            font-weight: 700;
+            margin-bottom: 1.25rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #fff;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 0.75rem;
+        }
+
+        .use-cases-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.25rem;
+        }
+
+        .use-case-item {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.25rem;
+        }
+
+        .use-case-item h4 {
+            font-size: 1.05rem;
+            color: var(--accent);
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .use-case-item p {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.5;
+        }
+
+        /* Specification Table */
+        .spec-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.95rem;
+        }
+
+        .spec-table th, .spec-table td {
+            padding: 0.9rem 1rem;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .spec-table th {
+            background: var(--bg-secondary);
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        .spec-table td.cat {
+            font-weight: 600;
+            color: #fff;
+            width: 25%;
+        }
+
+        .spec-table td.param {
+            color: var(--text-secondary);
+            width: 30%;
+        }
+
+        .spec-table td.val {
+            color: var(--text-primary);
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 500;
+        }
+
+        /* Flow Diagram / Steps */
+        .flow-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .flow-step {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1rem;
+            position: relative;
+        }
+
+        .flow-num {
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+            background: var(--accent);
+            color: #062b1e;
+            border-radius: 50%;
+            font-size: 0.75rem;
+            font-weight: 800;
+            text-align: center;
+            line-height: 24px;
+            margin-bottom: 0.5rem;
+        }
+
+        .flow-step h5 {
+            font-size: 0.95rem;
+            margin-bottom: 0.25rem;
+            color: #fff;
+        }
+
+        .flow-step p {
+            font-size: 0.82rem;
+            color: var(--text-secondary);
+        }
+
+        /* Cost comparison */
+        .cost-comparison {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .cost-box {
+            padding: 1.5rem;
+            border-radius: 14px;
+            border: 1px solid var(--border);
+        }
+
+        .cost-box.ours {
+            background: rgba(16, 185, 129, 0.08);
+            border-color: rgba(16, 185, 129, 0.4);
+        }
+
+        .cost-box.competitor {
+            background: var(--bg-secondary);
+        }
+
+        .cost-price {
+            font-size: 2rem;
+            font-weight: 800;
+            font-family: 'JetBrains Mono', monospace;
+            margin: 0.5rem 0;
+        }
+
+        .cost-box.ours .cost-price {
+            color: var(--accent);
+        }
+
+        .cost-box.competitor .cost-price {
+            color: var(--text-muted);
+            text-decoration: line-through;
+        }
+
+        footer {
+            border-top: 1px solid var(--border);
+            background: var(--bg-secondary);
+            padding: 2rem 1.5rem;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        footer a { color: var(--accent); text-decoration: none; }
+
+        @media (max-width: 768px) {
+            .project-title { font-size: 1.85rem; }
+            .cost-comparison { grid-template-columns: 1fr; }
+            .spec-table th, .spec-table td { padding: 0.6rem 0.5rem; font-size: 0.85rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <a href="../index.html" class="back-link">
+                ← <span data-i18n="back_to_index">Wróć do katalogu projektów</span>
+            </a>
+            <div class="lang-switcher">
+                <button class="lang-btn active" onclick="setLanguage('pl')">🇵🇱 PL</button>
+                <button class="lang-btn" onclick="setLanguage('en')">🇬🇧 EN</button>
+                <button class="lang-btn" onclick="setLanguage('uk')">🇺🇦 UK</button>
+                <button class="lang-btn" onclick="setLanguage('ru')">🇷🇺 RU</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        
+        <!-- HERO -->
+        <div class="project-hero">
+            <div class="project-tags">
+                <span class="tag">PROJECT #001</span>
+                <span class="tag">7-INCH LONG RANGE</span>
+                <span class="tag">CADDX ECLIPSE VOx</span>
+                <span class="tag">ONBOARD NPU AI</span>
+                <span class="tag">118 dB SIREN</span>
+            </div>
+            <h1 class="project-title" data-i18n="p_title">Ursus Agro-Sentinel 7" Thermal</h1>
+            <p class="project-subtitle" data-i18n="p_subtitle">
+                Autonomiczny bezzałogowy system monitoringu upraw i aktywnego odstraszania zwierzyny. Ultra-lekka platforma 7" z kamerą termowizyjną Caddx, pokładowym procesorem neuronowym AI i syreną piezo.
+            </p>
+
+            <div class="quick-metrics">
+                <div class="metric-box">
+                    <div class="metric-label" data-i18n="m_flight_time">CZAS MISJI</div>
+                    <div class="metric-val">~37 MIN</div>
+                </div>
+                <div class="metric-box">
+                    <div class="metric-label" data-i18n="m_coverage">POKRYCIE TERENU</div>
+                    <div class="metric-val">> 50 HA</div>
+                </div>
+                <div class="metric-box">
+                    <div class="metric-label" data-i18n="m_weight">WAGA STARTOWA</div>
+                    <div class="metric-val">1,47 KG</div>
+                </div>
+                <div class="metric-box">
+                    <div class="metric-label" data-i18n="m_bom_cost">KOSZT PODZESPOŁÓW</div>
+                    <div class="metric-val">~3700 PLN</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 1. GŁÓWNE ZASTOSOWANIA -->
+        <div class="section-card">
+            <h3 class="section-heading">🎯 <span data-i18n="sec_use_cases">Główne Zastosowania</span></h3>
+            <div class="use-cases-grid">
+                <div class="use-case-item">
+                    <h4>🐗 <span data-i18n="uc1_title">Patrol Anty-Dzik</span></h4>
+                    <p data-i18n="uc1_desc">Nocne i poranne wykrywanie watah dzików w kukurydzy i oziminach. Autonomiczne zniżenie i wypłoszenie syreną piezo 118 dB i stroboskopem LED w stronę lasu.</p>
+                </div>
+                <div class="use-case-item">
+                    <h4>🦌 <span data-i18n="uc2_title">Ratowanie Koźląt (Fawn Rescue)</span></h4>
+                    <p data-i18n="uc2_desc">Oblot łąk o świcie przed pokosem traw. Bezwzględny zakaz hałasu – cichy zapis współrzędnych GPS leżących koźląt saren w celu ochrony przed kosiarkami.</p>
+                </div>
+                <div class="use-case-item">
+                    <h4>📑 <span data-i18n="uc3_title">Dokumentacja Szkód Łowieckich</span></h4>
+                    <p data-i18n="uc3_desc">Tworzenie georeferencyjnego raportu PDF ze zdjęciami termicznymi, datą i mapą GPS zniszczonych łanów dla kół łowieckich i ubezpieczycieli.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 2. SPECYFIKACJA TECHNICZNA -->
+        <div class="section-card">
+            <h3 class="section-heading">⚙️ <span data-i18n="sec_specs">Specyfikacja Techniczna</span></h3>
+            <table class="spec-table">
+                <thead>
+                    <tr>
+                        <th data-i18n="th_subsystem">Podsystem</th>
+                        <th data-i18n="th_param">Parametr</th>
+                        <th data-i18n="th_value">Wartość / Komponent</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="cat" data-i18n="cat_airframe">Płatowiec</td>
+                        <td class="param" data-i18n="param_frame_type">Typ ramy i układ</td>
+                        <td class="val">7" Long-Range Carbon 3K (przekątna ~300 mm), waga 190 g</td>
+                    </tr>
+                    <tr>
+                        <td class="cat" data-i18n="cat_airframe">Płatowiec</td>
+                        <td class="param" data-i18n="param_weight">Masa startowa (AUW)</td>
+                        <td class="val">1470 g (z pakietem Li-Ion 6S2P i pełnym wyposażeniem)</td>
+                    </tr>
+                    <tr>
+                        <td class="cat" data-i18n="cat_propulsion">Napęd</td>
+                        <td class="param" data-i18n="param_motors_props">Silniki i śmigła</td>
+                        <td class="val">4x EMAX ECO II 2807 1300KV + śmigła HQProp 7x4x3</td>
+                    </tr>
+                    <tr>
+                        <td class="cat" data-i18n="cat_power">Zasilanie</td>
+                        <td class="param" data-i18n="param_battery">Akumulator roboczy</td>
+                        <td class="val">Li-Ion 6S2P 9000 mAh (12x Molicel INR-21700-P45B, 194,4 Wh)</td>
+                    </tr>
+                    <tr>
+                        <td class="cat" data-i18n="cat_power">Zasilanie</td>
+                        <td class="param" data-i18n="param_time">Czas lotu roboczego</td>
+                        <td class="val">~37 minut (z 15% rezerwą RTL; max 43 min)</td>
+                    </tr>
+                    <tr>
+                        <td class="cat" data-i18n="cat_vision">Sensoryka</td>
+                        <td class="param" data-i18n="param_thermal">Kamera termowizyjna</td>
+                        <td class="val">Caddx Eclipse (VOx mikrobolometr, 640×512 / 384×288 px, 50 Hz, 32 g)</td>
+                    </tr>
+                    <tr>
+                        <td class="cat" data-i18n="cat_vision">Sensoryka</td>
+                        <td class="param" data-i18n="param_daylight">Kamera dzienna</td>
+                        <td class="val">Caddx Ratel 2 z elektronicznym przełącznikiem wideo</td>
+                    </tr>
+                    <tr>
+                        <td class="cat" data-i18n="cat_ai">Sztuczna Inteligencja</td>
+                        <td class="param" data-i18n="param_npu">Koprocesor Edge AI</td>
+                        <td class="val">Rockchip RV1106 NPU (waga 9 g, pobór mocy < 1,5 W)</td>
+                    </tr>
+                    <tr>
+                        <td class="cat" data-i18n="cat_ai">Sztuczna Inteligencja</td>
+                        <td class="param" data-i18n="param_model">Architektura modelu</td>
+                        <td class="val">YOLOv8-Nano INT8 (30 FPS na żywo na pokładzie drona)</td>
+                    </tr>
+                    <tr>
+                        <td class="cat" data-i18n="cat_deter">Odstraszanie</td>
+                        <td class="param" data-i18n="param_siren">System akustyczno-optyczny</td>
+                        <td class="val">Syrena piezo 118 dB SPL @ 1m (2,8–3,5 kHz) + stroboskop LED 10W (14 Hz)</td>
+                    </tr>
+                    <tr>
+                        <td class="cat" data-i18n="cat_nav">Awionika</td>
+                        <td class="param" data-i18n="param_fc_soft">Kontroler i Autopilot</td>
+                        <td class="val">SpeedyBee F405 V4 Stack z oprogramowaniem ArduPilot</td>
+                    </tr>
+                    <tr>
+                        <td class="cat" data-i18n="cat_nav">Awionika</td>
+                        <td class="param" data-i18n="param_sensors">Nawigacja i pułap</td>
+                        <td class="val">Matek M10Q GNSS (GPS/Galileo) + Lidar laserowy (Terrain Following)</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- 3. AUTONOMICZNA LOGIKA AI I ODSTRASZANIA -->
+        <div class="section-card">
+            <h3 class="section-heading">🧠 <span data-i18n="sec_ai_logic">Jak Dron Autonomicznie Podejmuje Decyzje?</span></h3>
+            <p style="color: var(--text-secondary); margin-bottom: 1.25rem;" data-i18n="ai_logic_desc">
+                Cała pętla decyzyjna zamyka się na pokładzie w ułamku sekundy bez konieczności łączności z operatorem:
+            </p>
+            <div class="flow-container">
+                <div class="flow-step">
+                    <span class="flow-num">1</span>
+                    <h5 data-i18n="step1_title">Detekcja Termiczna</h5>
+                    <p data-i18n="step1_desc">Kamera Caddx rejestruje sygnaturę cieplną (38°C) na chłodnym tle gleby (8°C).</p>
+                </div>
+                <div class="flow-step">
+                    <span class="flow-num">2</span>
+                    <h5 data-i18n="step2_title">Klasyfikacja AI NPU</h5>
+                    <p data-i18n="step2_desc">Model YOLOv8-Nano rozpoznaje sylwetkę: dzik, sarna, koźlę czy człowiek.</p>
+                </div>
+                <div class="flow-step">
+                    <span class="flow-num">3</span>
+                    <h5 data-i18n="step3_title">Rzutowanie GPS</h5>
+                    <p data-i18n="step3_desc">Z kąta kamery i lidara system wylicza koordynaty GPS i sprawdza granice pola.</p>
+                </div>
+                <div class="flow-step">
+                    <span class="flow-num">4</span>
+                    <h5 data-i18n="step4_title">Akcja Odstraszania</h5>
+                    <p data-i18n="step4_desc">Dla dzika: zawis i seria 118 dB. Dla koźlęcia: bezwzględna cisza i log GPS.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 4. KOSZTORYS I PRZEWAGA RYNKOWA -->
+        <div class="section-card">
+            <h3 class="section-heading">💰 <span data-i18n="sec_cost">Ekonomia i Przewaga Rynkowa</span></h3>
+            <div class="cost-comparison">
+                <div class="cost-box ours">
+                    <span class="tag" style="background: rgba(16,185,129,0.25);">PROJEKT URSUS 7"</span>
+                    <div class="cost-price">~3 700 PLN</div>
+                    <p style="color: var(--text-secondary); font-size: 0.9rem;" data-i18n="cost_ours_desc">
+                        Koszt kompletnych podzespołów BOM. Posiada wbudowaną syrenę 118 dB, autonomiczne AI i dedykowany soft dla rolnika. Waga zaledwie 1,47 kg.
+                    </p>
+                </div>
+                <div class="cost-box competitor">
+                    <span class="tag" style="background: rgba(255,255,255,0.05); color: var(--text-muted); border-color: var(--border);">KOMERCYJNA KONKURENCJA (np. DJI M3T)</span>
+                    <div class="cost-price">~25 000+ PLN</div>
+                    <p style="color: var(--text-secondary); font-size: 0.9rem;" data-i18n="cost_comp_desc">
+                        Ponad 6-krotnie droższy, zamknięty ekosystem, brak autonomicznego algorytmu odstraszania i syreny – wymaga ciągłego ręcznego pilotowania.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <footer>
+        <p><strong>Ursus Agro-Sentinel 7" Thermal • Open Drone Project Specification</strong></p>
+        <p style="margin-top: 0.5rem;">GitHub: <a href="https://github.com/bartnik-hue/droneideas" target="_blank">github.com/bartnik-hue/droneideas</a></p>
+    </footer>
+
+    <script>
+        const translations = {
+            pl: {
+                back_to_index: "Wróć do katalogu projektów",
+                p_title: "Ursus Agro-Sentinel 7\" Thermal",
+                p_subtitle: "Autonomiczny bezzałogowy system monitoringu upraw i aktywnego odstraszania zwierzyny. Ultra-lekka platforma 7\" z kamerą termowizyjną Caddx, pokładowym procesorem neuronowym AI i syreną piezo.",
+                m_flight_time: "CZAS MISJI",
+                m_coverage: "POKRYCIE TERENU",
+                m_weight: "WAGA STARTOWA",
+                m_bom_cost: "KOSZT PODZESPOŁÓW",
+                sec_use_cases: "Główne Zastosowania",
+                uc1_title: "Patrol Anty-Dzik",
+                uc1_desc: "Nocne i poranne wykrywanie watah dzików w kukurydzy i oziminach. Autonomiczne zniżenie i wypłoszenie syreną piezo 118 dB i stroboskopem LED w stronę lasu.",
+                uc2_title: "Ratowanie Koźląt (Fawn Rescue)",
+                uc2_desc: "Oblot łąk o świcie przed pokosem traw. Bezwzględny zakaz hałasu – cichy zapis współrzędnych GPS leżących koźląt saren w celu ochrony przed kosiarkami.",
+                uc3_title: "Dokumentacja Szkód Łowieckich",
+                uc3_desc: "Tworzenie georeferencyjnego raportu PDF ze zdjęciami termicznymi, datą i mapą GPS zniszczonych łanów dla kół łowieckich i ubezpieczycieli.",
+                sec_specs: "Specyfikacja Techniczna",
+                th_subsystem: "Podsystem",
+                th_param: "Parametr",
+                th_value: "Wartość / Komponent",
+                cat_airframe: "Płatowiec",
+                param_frame_type: "Typ ramy i układ",
+                param_weight: "Masa startowa (AUW)",
+                cat_propulsion: "Napęd",
+                param_motors_props: "Silniki i śmigła",
+                cat_power: "Zasilanie",
+                param_battery: "Akumulator roboczy",
+                param_time: "Czas lotu roboczego",
+                cat_vision: "Sensoryka",
+                param_thermal: "Kamera termowizyjna",
+                param_daylight: "Kamera dzienna",
+                cat_ai: "Sztuczna Inteligencja",
+                param_npu: "Koprocesor Edge AI",
+                param_model: "Architektura modelu",
+                cat_deter: "Odstraszanie",
+                param_siren: "System akustyczno-optyczny",
+                cat_nav: "Awionika",
+                param_fc_soft: "Kontroler i Autopilot",
+                param_sensors: "Nawigacja i pułap",
+                sec_ai_logic: "Jak Dron Autonomicznie Podejmuje Decyzje?",
+                ai_logic_desc: "Cała pętla decyzyjna zamyka się na pokładzie w ułamku sekundy bez konieczności łączności z operatorem:",
+                step1_title: "Detekcja Termiczna",
+                step1_desc: "Kamera Caddx rejestruje sygnaturę cieplną (38°C) na chłodnym tle gleby (8°C).",
+                step2_title: "Klasyfikacja AI NPU",
+                step2_desc: "Model YOLOv8-Nano rozpoznaje sylwetkę: dzik, sarna, koźlę czy człowiek.",
+                step3_title: "Rzutowanie GPS",
+                step3_desc: "Z kąta kamery i lidara system wylicza koordynaty GPS i sprawdza granice pola.",
+                step4_title: "Akcja Odstraszania",
+                step4_desc: "Dla dzika: zawis i seria 118 dB. Dla koźlęcia: bezwzględna cisza i log GPS.",
+                sec_cost: "Ekonomia i Przewaga Rynkowa",
+                cost_ours_desc: "Koszt kompletnych podzespołów BOM. Posiada wbudowaną syrenę 118 dB, autonomiczne AI i dedykowany soft dla rolnika. Waga zaledwie 1,47 kg.",
+                cost_comp_desc: "Ponad 6-krotnie droższy, zamknięty ekosystem, brak autonomicznego algorytmu odstraszania i syreny – wymaga ciągłego ręcznego pilotowania."
+            },
+            en: {
+                back_to_index: "Back to Projects Catalog",
+                p_title: "Ursus Agro-Sentinel 7\" Thermal",
+                p_subtitle: "Autonomous unmanned crop monitoring and active wildlife deterrence system. Ultra-lightweight 7\" platform featuring a Caddx thermal core, onboard NPU AI processing, and a high-decibel piezo siren.",
+                m_flight_time: "MISSION TIME",
+                m_coverage: "FIELD COVERAGE",
+                m_weight: "TAKEOFF WEIGHT",
+                m_bom_cost: "BOM HARDWARE COST",
+                sec_use_cases: "Key Applications",
+                uc1_title: "Wild Boar Deterrence",
+                uc1_desc: "Night and dawn patrolling of corn and grain fields. Autonomous descend and deterrence using a 118 dB siren and strobe lights toward the forest boundary.",
+                uc2_title: "Fawn Rescue (Pre-Mowing)",
+                uc2_desc: "Dawn meadow surveys before grass mowing. Strict silent mode – georeferenced GPS logging of bedded fawns to protect them from high-speed mowers.",
+                uc3_title: "Wildlife Damage Reports",
+                uc3_desc: "Automatic generation of PDF damage claim reports with thermal photos, timestamps, and GPS markers for hunting clubs and insurance underwriters.",
+                sec_specs: "Technical Specifications",
+                th_subsystem: "Subsystem",
+                th_param: "Parameter",
+                th_value: "Value / Specification",
+                cat_airframe: "Airframe",
+                param_frame_type: "Frame Type",
+                param_weight: "Takeoff Weight (AUW)",
+                cat_propulsion: "Propulsion",
+                param_motors_props: "Motors & Propellers",
+                cat_power: "Power",
+                param_battery: "Battery Pack",
+                param_time: "Operational Flight Time",
+                cat_vision: "Vision & Imaging",
+                param_thermal: "Thermal Core",
+                param_daylight: "Daylight Camera",
+                cat_ai: "Artificial Intelligence",
+                param_npu: "Edge AI Coprocessor",
+                param_model: "Model Architecture",
+                cat_deter: "Deterrence",
+                param_siren: "Acoustic / Optical System",
+                cat_nav: "Avionics",
+                param_fc_soft: "Flight Controller & Firmware",
+                param_sensors: "Navigation & Terrain",
+                sec_ai_logic: "How Autonomous Decision Making Works",
+                ai_logic_desc: "The complete decision loop runs onboard in fractions of a second without requiring an active ground link:",
+                step1_title: "Thermal Detection",
+                step1_desc: "Caddx core captures 38°C animal body heat against cool 8°C soil background.",
+                step2_title: "NPU AI Inference",
+                step2_desc: "YOLOv8-Nano model classifies target: wild boar, deer, bedded fawn, or human.",
+                step3_title: "GPS Projection",
+                step3_desc: "Camera pitch and lidar range determine exact ground GPS and check field fence.",
+                step4_title: "Targeted Action",
+                step4_desc: "For boars: hover and 118 dB blast. For fawns: strict silence and GPS waypoint.",
+                sec_cost: "Cost Analysis & Competitive Advantage",
+                cost_ours_desc: "Total hardware BOM cost. Features integrated 118 dB siren, onboard AI, and custom farmer-friendly software. Total mass only 1.47 kg.",
+                cost_comp_desc: "Over 6x more expensive, closed proprietary ecosystem, lacks onboard AI deterrence logic – requires constant manual pilot control."
+            },
+            uk: {
+                back_to_index: "Назад до каталогу проєктів",
+                p_title: "Ursus Agro-Sentinel 7\" Thermal",
+                p_subtitle: "Автономний безпілотний комплекс моніторингу посівів та активного відлякування диких тварин. Ультралегка 7-дюймова платформа з тепловізором Caddx, бортовим ШІ-процесором NPU та п'єзосиреною.",
+                m_flight_time: "ЧАС МІСІЇ",
+                m_coverage: "ПЛОЩА ОБЛІТУ",
+                m_weight: "ЗЛЬОТНА ВАГА",
+                m_bom_cost: "СОБІВАРТІСТЬ BOM",
+                sec_use_cases: "Основні Застосування",
+                uc1_title: "Захист від Кабанів",
+                uc1_desc: "Нічне та ранкове виявлення зграй диких кабанів у кукурудзі. Автономне зниження та відлякування сиреною 118 дБ і стробоскопом у напрямку лісу.",
+                uc2_title: "Порятунок Оленят (Fawn Rescue)",
+                uc2_desc: "Обліт лугів на світанку перед сінокосом. Режим повної тиші – фіксація GPS-координат знайдених оленят для запобігання загибелі під косарками.",
+                uc3_title: "Акти Фіксації Збитків",
+                uc3_desc: "Автоматичне формування PDF-звітів з тепловізійними знімками та GPS-картою пошкоджень для страхових компаній та мисливських господарств.",
+                sec_specs: "Технічна Специфікація",
+                th_subsystem: "Підсистема",
+                th_param: "Параметр",
+                th_value: "Значення / Компонент",
+                cat_airframe: "Планер",
+                param_frame_type: "Тип рами",
+                param_weight: "Зльотна маса (AUW)",
+                cat_propulsion: "Силова установка",
+                param_motors_props: "Мотори та гвинти",
+                cat_power: "Живлення",
+                param_battery: "Акумуляторний блок",
+                param_time: "Робочий час польоту",
+                cat_vision: "Сенсори",
+                param_thermal: "Тепловізор",
+                param_daylight: "Денна камера",
+                cat_ai: "Штучний Інтелект",
+                param_npu: "Бортовий NPU ШІ",
+                param_model: "Модель нейромережі",
+                cat_deter: "Відлякування",
+                param_siren: "Сирена та стробоскоп",
+                cat_nav: "Авіоніка",
+                param_fc_soft: "Контролер і Автопілот",
+                param_sensors: "Навігація та висота",
+                sec_ai_logic: "Як Дрон Автономно Приймає Рішення?",
+                ai_logic_desc: "Весь цикл аналізу та реакції виконується на борту за частки секунди без потреби у радіозв'язку:",
+                step1_title: "Тепловізійне Виявлення",
+                step1_desc: "Сенсор Caddx фіксує тепло тіла (38°C) на фоні холодного ґрунту (8°C).",
+                step2_title: "ШІ-Класифікація NPU",
+                step2_desc: "Модель YOLOv8-Nano розпізнає силует: дикий кабан, косуля, оленя чи людина.",
+                step3_title: "GPS-Проекція",
+                step3_desc: "За кутом камери та лідаром обчислюються координати тварини на полі.",
+                step4_title: "Дія Відлякування",
+                step4_desc: "Для кабана: зависання та залп 118 дБ. Для оленяти: повна тиша та GPS-точка.",
+                sec_cost: "Економіка та Переваги",
+                cost_ours_desc: "Повна собівартість деталей. Має вбудовану сирену 118 дБ, автономний ШІ та простий софт для агронома. Вага лише 1,47 кг.",
+                cost_comp_desc: "Понад 6 разів дорожчий, закрита екосистема, відсутній вбудований алгоритм відлякування – потребує постійного ручного пілотування."
+            },
+            ru: {
+                back_to_index: "Вернуться в каталог проектов",
+                p_title: "Ursus Agro-Sentinel 7\" Thermal",
+                p_subtitle: "Автономный беспилотный комплекс мониторинга полей и активного отпугивания диких животных. Ультралегкая 7-дюймовая платформа с тепловизором Caddx, бортовым ИИ-процессором NPU и пьезосиреной.",
+                m_flight_time: "ВРЕМЯ МИССИИ",
+                m_coverage: "ПЛОЩАДЬ ОБСЛЕДОВАНИЯ",
+                m_weight: "ВЗЛЕТНЫЙ ВЕС",
+                m_bom_cost: "СТОИМОСТЬ КОМПЛЕКТУЮЩИХ",
+                sec_use_cases: "Основные Применения",
+                uc1_title: "Защита от Кабанов",
+                uc1_desc: "Ночное и утреннее обнаружение стад кабанов в кукурузе. Автономное снижение и отпугивание сиреной 118 дБ и стробоскопом в сторону леса.",
+                uc2_title: "Спасение Детенышей Косуль",
+                uc2_desc: "Облет полей на рассвете перед покосом трав. Режим строгой тишины – сохранение GPS-координат детенышей для защиты от сельхозтехники.",
+                uc3_title: "Фиксация Ущерба",
+                uc3_desc: "Создание геопривязанных отчетов в PDF с тепловыми снимками, датой и GPS-картой потравы для страховых компаний и охотничьих хозяйств.",
+                sec_specs: "Технические Характеристики",
+                th_subsystem: "Подсистема",
+                th_param: "Параметр",
+                th_value: "Значение / Компонент",
+                cat_airframe: "Планер",
+                param_frame_type: "Тип рамы",
+                param_weight: "Взлетная масса (AUW)",
+                cat_propulsion: "Винтомоторная группа",
+                param_motors_props: "Моторы и пропеллеры",
+                cat_power: "Питание",
+                param_battery: "Аккумуляторный блок",
+                param_time: "Рабочее время полета",
+                cat_vision: "Камеры",
+                param_thermal: "Тепловизор",
+                param_daylight: "Дневная камера",
+                cat_ai: "Искусственный Интеллект",
+                param_npu: "Бортовой NPU ИИ",
+                param_model: "Архитектура модели",
+                cat_deter: "Отпугивание",
+                param_siren: "Сирена и стробоскоп",
+                cat_nav: "Авионика",
+                param_fc_soft: "Контроллер и прошивка",
+                param_sensors: "Навигация и высота",
+                sec_ai_logic: "Как Дрон Автономно Принимает Решения?",
+                ai_logic_desc: "Весь цикл обработки и принятия решений выполняется на борту за доли секунды без связи с базой:",
+                step1_title: "Тепловое Обнаружение",
+                step1_desc: "Камера Caddx фиксирует тепло тела (38°C) на фоне остывшей почвы (8°C).",
+                step2_title: "Классификация NPU ИИ",
+                step2_desc: "Модель YOLOv8-Nano определяет цель: кабан, косуля, лежащий детеныш или человек.",
+                step3_title: "GPS-Проекция",
+                step3_desc: "По углам камеры и лазерному лидару вычисляются точные GPS координаты цели.",
+                step4_title: "Реакция Системы",
+                step4_desc: "Для кабана: зависание и залп 118 дБ. Для детеныша: полная тишина и GPS-метка.",
+                sec_cost: "Экономика и Преимущества",
+                cost_ours_desc: "Себестоимость комплектующих BOM. Оснащен сиреной 118 дБ, бортовым ИИ и простым ПО для фермера. Вес всего 1,47 кг.",
+                cost_comp_desc: "Более чем в 6 раз дороже, закрытая экосистема, нет автоматического отпугивания – требует постоянного ручного управления."
+            }
+        };
+
+        function setLanguage(lang) {
+            document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+            const activeBtn = Array.from(document.querySelectorAll('.lang-btn')).find(b => b.textContent.toLowerCase().includes(lang));
+            if (activeBtn) activeBtn.classList.add('active');
+
+            document.documentElement.lang = lang;
+            localStorage.setItem('droneideas_lang', lang);
+
+            const dict = translations[lang] || translations.pl;
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (dict[key]) {
+                    el.textContent = dict[key];
+                }
+            });
+        }
+
+        const savedLang = localStorage.getItem('droneideas_lang') || 'pl';
+        setLanguage(savedLang);
+    </script>
+</body>
+</html>

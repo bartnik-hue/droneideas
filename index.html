@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drone Ideas & Concepts | Baza Projektów Dronowych</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #0a0d14;
+            --bg-secondary: #121722;
+            --bg-card: #182030;
+            --bg-card-hover: #1f293d;
+            --accent: #10b981;
+            --accent-glow: rgba(16, 185, 129, 0.25);
+            --accent-blue: #3b82f6;
+            --text-primary: #f3f4f6;
+            --text-secondary: #9ca3af;
+            --text-muted: #6b7280;
+            --border: #232d42;
+            --badge-bg: rgba(16, 185, 129, 0.15);
+            --badge-text: #34d399;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Top Navigation Bar */
+        header {
+            background-color: rgba(18, 23, 34, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+            color: var(--text-primary);
+            font-weight: 700;
+            font-size: 1.2rem;
+            letter-spacing: -0.02em;
+        }
+
+        .logo-icon {
+            width: 32px;
+            height: 32px;
+            background: linear-gradient(135deg, var(--accent), var(--accent-blue));
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 1rem;
+            font-weight: 800;
+            color: #fff;
+            box-shadow: 0 0 15px var(--accent-glow);
+        }
+
+        /* Language Switcher */
+        .lang-switcher {
+            display: flex;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 3px;
+            gap: 2px;
+        }
+
+        .lang-btn {
+            background: transparent;
+            border: none;
+            color: var(--text-secondary);
+            padding: 6px 12px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            border-radius: 7px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .lang-btn:hover {
+            color: var(--text-primary);
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .lang-btn.active {
+            background: var(--accent);
+            color: #062b1e;
+            box-shadow: 0 0 12px var(--accent-glow);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 4.5rem 1.5rem 3rem;
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 4px 12px;
+            background: var(--badge-bg);
+            color: var(--badge-text);
+            border: 1px solid rgba(16, 185, 129, 0.3);
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 1.25rem;
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .hero h1 {
+            font-size: 2.75rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 1.25rem;
+            letter-spacing: -0.03em;
+            background: linear-gradient(135deg, #ffffff 40%, var(--text-secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero p {
+            font-size: 1.15rem;
+            color: var(--text-secondary);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem 5rem;
+            flex: 1;
+            width: 100%;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 2rem;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 1rem;
+        }
+
+        .section-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+            gap: 1.75rem;
+        }
+
+        /* Project Card */
+        .card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(16, 185, 129, 0.4);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35), 0 0 20px var(--accent-glow);
+        }
+
+        .card-header-image {
+            height: 190px;
+            background: linear-gradient(135deg, #131c2e, #0c201d);
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-bottom: 1px solid var(--border);
+            overflow: hidden;
+        }
+
+        .card-header-image::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at center, rgba(16, 185, 129, 0.15), transparent 70%);
+        }
+
+        .card-tech-badges {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .tech-pill {
+            background: rgba(10, 13, 20, 0.75);
+            backdrop-filter: blur(6px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-primary);
+            font-size: 0.75rem;
+            font-family: 'JetBrains Mono', monospace;
+            padding: 3px 8px;
+            border-radius: 6px;
+        }
+
+        .card-status {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: rgba(16, 185, 129, 0.2);
+            border: 1px solid var(--accent);
+            color: var(--accent);
+            font-size: 0.75rem;
+            font-weight: 700;
+            padding: 3px 8px;
+            border-radius: 6px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .card-drone-symbol {
+            font-size: 3.5rem;
+            opacity: 0.85;
+            filter: drop-shadow(0 0 10px rgba(16, 185, 129, 0.4));
+        }
+
+        .card-body {
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+        }
+
+        .card-code {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.8rem;
+            color: var(--accent);
+            margin-bottom: 0.4rem;
+        }
+
+        .card-title {
+            font-size: 1.35rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            color: #fff;
+            line-height: 1.3;
+        }
+
+        .card-desc {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            margin-bottom: 1.25rem;
+            flex: 1;
+        }
+
+        .card-specs {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0.75rem;
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 0.75rem;
+            margin-bottom: 1.25rem;
+            text-align: center;
+        }
+
+        .spec-item span {
+            display: block;
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        .spec-item strong {
+            display: block;
+            font-size: 0.95rem;
+            color: var(--text-primary);
+            font-family: 'JetBrains Mono', monospace;
+            margin-top: 2px;
+        }
+
+        .card-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            background: linear-gradient(135deg, var(--accent), #059669);
+            color: #04251a;
+            font-weight: 700;
+            text-decoration: none;
+            padding: 0.85rem 1.25rem;
+            border-radius: 10px;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 12px var(--accent-glow);
+        }
+
+        .card-btn:hover {
+            background: linear-gradient(135deg, #34d399, var(--accent));
+            transform: translateY(-1px);
+            box-shadow: 0 6px 18px rgba(16, 185, 129, 0.4);
+        }
+
+        /* Coming soon card */
+        .card.coming-soon {
+            opacity: 0.65;
+            border-style: dashed;
+        }
+
+        .card.coming-soon:hover {
+            transform: none;
+            border-color: var(--border);
+            box-shadow: none;
+        }
+
+        .card.coming-soon .card-header-image {
+            background: #111622;
+        }
+
+        .card-btn.disabled {
+            background: var(--bg-secondary);
+            color: var(--text-muted);
+            border: 1px solid var(--border);
+            box-shadow: none;
+            cursor: not-allowed;
+        }
+
+        /* Footer */
+        footer {
+            border-top: 1px solid var(--border);
+            background: var(--bg-secondary);
+            padding: 2rem 1.5rem;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        footer a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2rem; }
+            .projects-grid { grid-template-columns: 1fr; }
+            .nav-container { flex-direction: column; gap: 1rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">▲</div>
+                <span>DRONE IDEAS & CONCEPTS</span>
+            </a>
+            <div class="lang-switcher">
+                <button class="lang-btn active" onclick="setLanguage('pl')">🇵🇱 PL</button>
+                <button class="lang-btn" onclick="setLanguage('en')">🇬🇧 EN</button>
+                <button class="lang-btn" onclick="setLanguage('uk')">🇺🇦 UK</button>
+                <button class="lang-btn" onclick="setLanguage('ru')">🇷🇺 RU</button>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-badge" data-i18n="hero_badge">OPEN HARDWARE & UAV CONCEPTS</div>
+        <h1 data-i18n="hero_title">Baza Projektów i Koncepcji Dronowych</h1>
+        <p data-i18n="hero_desc">Zbiór innowacyjnych, niskobudżetowych i wyspecjalizowanych projektów bezzałogowych statków powietrznych dla rolnictwa, inspekcji i ochrony środowiska.</p>
+    </section>
+
+    <main class="container">
+        <div class="section-header">
+            <div class="section-title">
+                <span data-i18n="featured_projects">Katalog Koncepcji</span>
+            </div>
+            <span style="color: var(--text-muted); font-size: 0.85rem;" data-i18n="version_tag">v1.0 • Ostatnia aktualizacja: 2026</span>
+        </div>
+
+        <div class="projects-grid">
+            
+            <!-- PROJECT 001: URSUS AGRO-SENTINEL 7" -->
+            <div class="card">
+                <div class="card-header-image">
+                    <div class="card-tech-badges">
+                        <span class="tech-pill">7" FPV</span>
+                        <span class="tech-pill">THERMAL LWIR</span>
+                        <span class="tech-pill">AI NPU</span>
+                    </div>
+                    <span class="card-status" data-i18n="status_active">PROJEKT GOTOWY</span>
+                    <div class="card-drone-symbol">🛰️</div>
+                </div>
+                <div class="card-body">
+                    <div class="card-code">PROJECT #001 // AGRO & WILDLIFE</div>
+                    <h2 class="card-title" data-i18n="p1_title">Ursus Agro-Sentinel 7"</h2>
+                    <p class="card-desc" data-i18n="p1_desc">
+                        Autonomiczny, niskobudżetowy dron patrolowy do ochrony upraw (kukurydza, rzepak). Wyposażony w kamerę termowizyjną Caddx, pokładowy procesor neuronowy AI i syrenę 118 dB do automatycznego wypłaszania dzików i ochrony koźląt saren.
+                    </p>
+                    <div class="card-specs">
+                        <div class="spec-item">
+                            <span data-i18n="spec_flight_time">CZAS LOTU</span>
+                            <strong>~37 MIN</strong>
+                        </div>
+                        <div class="spec-item">
+                            <span data-i18n="spec_coverage">OBSZAR</span>
+                            <strong>>50 HA</strong>
+                        </div>
+                        <div class="spec-item">
+                            <span data-i18n="spec_cost">KOSZT BOM</span>
+                            <strong>~3700 PLN</strong>
+                        </div>
+                    </div>
+                    <a href="projects/agro-sentinel-7.html" class="card-btn">
+                        <span data-i18n="btn_view_project">Zobacz Kartę Projektu</span> →
+                    </a>
+                </div>
+            </div>
+
+            <!-- PROJECT 002: FOREST FIRE FIRST RESPONDER (Concept) -->
+            <div class="card coming-soon">
+                <div class="card-header-image">
+                    <div class="card-tech-badges">
+                        <span class="tech-pill">VTOL TILT-ROTOR</span>
+                        <span class="tech-pill">THERMAL 360</span>
+                    </div>
+                    <span class="card-status" style="border-color: #f59e0b; color: #f59e0b; background: rgba(245,158,11,0.15);" data-i18n="status_concept">W PRZYGOTOWANIU</span>
+                    <div class="card-drone-symbol" style="opacity: 0.4;">🔥</div>
+                </div>
+                <div class="card-body">
+                    <div class="card-code">PROJECT #002 // FORESTRY</div>
+                    <h2 class="card-title" data-i18n="p2_title">Forest Fire Spotter VTOL</h2>
+                    <p class="card-desc" data-i18n="p2_desc">
+                        Długodystansowy pionowzlot płatowiec (VTOL) o zasięgu 40 km, przeznaczony do wczesnego wykrywania zarzewi ognia i dymu w lasach z łącznością satelitarną i radiową.
+                    </p>
+                    <div class="card-specs">
+                        <div class="spec-item">
+                            <span data-i18n="spec_flight_time">CZAS LOTU</span>
+                            <strong>90 MIN</strong>
+                        </div>
+                        <div class="spec-item">
+                            <span data-i18n="spec_coverage">ZASIĘG</span>
+                            <strong>40 KM</strong>
+                        </div>
+                        <div class="spec-item">
+                            <span data-i18n="spec_cost">STATUS</span>
+                            <strong>KONCEPCJA</strong>
+                        </div>
+                    </div>
+                    <a href="#" class="card-btn disabled">
+                        <span data-i18n="btn_coming_soon">Koncepcja wkrótce</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- PROJECT 003: PIPELINE & SOLAR INSPECTOR (Concept) -->
+            <div class="card coming-soon">
+                <div class="card-header-image">
+                    <div class="card-tech-badges">
+                        <span class="tech-pill">OPTICAL GAS</span>
+                        <span class="tech-pill">RTK PRECISION</span>
+                    </div>
+                    <span class="card-status" style="border-color: #3b82f6; color: #3b82f6; background: rgba(59,130,246,0.15);" data-i18n="status_concept">W PRZYGOTOWANIU</span>
+                    <div class="card-drone-symbol" style="opacity: 0.4;">⚡</div>
+                </div>
+                <div class="card-body">
+                    <div class="card-code">PROJECT #003 // INDUSTRIAL INFRASTRUCTURE</div>
+                    <h2 class="card-title" data-i18n="p3_title">Solar & Gas Infra Inspector</h2>
+                    <p class="card-desc" data-i18n="p3_desc">
+                        Autonomiczna stacja dokująca typu Drone-in-a-Box do codziennych, automatycznych inspekcji farm fotowoltaicznych (hot-spoty) oraz rurociągów z wykrywaniem wycieków metanu.
+                    </p>
+                    <div class="card-specs">
+                        <div class="spec-item">
+                            <span data-i18n="spec_flight_time">SYSTEM</span>
+                            <strong>DOCK-BOX</strong>
+                        </div>
+                        <div class="spec-item">
+                            <span data-i18n="spec_coverage">DOKŁADNOŚĆ</span>
+                            <strong>RTK 1CM</strong>
+                        </div>
+                        <div class="spec-item">
+                            <span data-i18n="spec_cost">STATUS</span>
+                            <strong>KONCEPCJA</strong>
+                        </div>
+                    </div>
+                    <a href="#" class="card-btn disabled">
+                        <span data-i18n="btn_coming_soon">Koncepcja wkrótce</span>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <footer>
+        <p><strong>Drone Ideas & Open UAV Concepts Repository</strong></p>
+        <p style="margin-top: 0.5rem;">GitHub: <a href="https://github.com/bartnik-hue/droneideas" target="_blank">github.com/bartnik-hue/droneideas</a> • Licencja Open Hardware & Software</p>
+    </footer>
+
+    <script>
+        const translations = {
+            pl: {
+                hero_badge: "OPEN HARDWARE & UAV CONCEPTS",
+                hero_title: "Baza Projektów i Koncepcji Dronowych",
+                hero_desc: "Zbiór innowacyjnych, niskobudżetowych i wyspecjalizowanych projektów bezzałogowych statków powietrznych dla rolnictwa, inspekcji i ochrony środowiska.",
+                featured_projects: "Katalog Koncepcji",
+                version_tag: "v1.0 • Ostatnia aktualizacja: 2026",
+                status_active: "PROJEKT GOTOWY",
+                status_concept: "W PRZYGOTOWANIU",
+                p1_title: "Ursus Agro-Sentinel 7\"",
+                p1_desc: "Autonomiczny, niskobudżetowy dron patrolowy do ochrony upraw (kukurydza, rzepak). Wyposażony w kamerę termowizyjną Caddx, pokładowy procesor neuronowy AI i syrenę 118 dB do automatycznego wypłaszania dzików i ochrony koźląt saren.",
+                p2_title: "Forest Fire Spotter VTOL",
+                p2_desc: "Długodystansowy pionowzlot płatowiec (VTOL) o zasięgu 40 km, przeznaczony do wczesnego wykrywania zarzewi ognia i dymu w lasach z łącznością satelitarną i radiową.",
+                p3_title: "Solar & Gas Infra Inspector",
+                p3_desc: "Autonomiczna stacja dokująca typu Drone-in-a-Box do codziennych, automatycznych inspekcji farm fotowoltaicznych (hot-spoty) oraz rurociągów z wykrywaniem wycieków metanu.",
+                spec_flight_time: "CZAS LOTU",
+                spec_coverage: "OBSZAR",
+                spec_cost: "KOSZT BOM",
+                btn_view_project: "Zobacz Kartę Projektu",
+                btn_coming_soon: "Koncepcja wkrótce"
+            },
+            en: {
+                hero_badge: "OPEN HARDWARE & UAV CONCEPTS",
+                hero_title: "Drone Ideas & Engineering Concepts",
+                hero_desc: "A repository of innovative, low-cost, and specialized unmanned aerial vehicle (UAV) designs for agriculture, remote inspection, and environmental protection.",
+                featured_projects: "Project Catalog",
+                version_tag: "v1.0 • Last updated: 2026",
+                status_active: "SPEC READY",
+                status_concept: "IN PIPELINE",
+                p1_title: "Ursus Agro-Sentinel 7\"",
+                p1_desc: "Autonomous, ultra-budget agricultural patrol drone. Features a Caddx thermal camera, on-board NPU AI edge processing, and an autonomous 118 dB siren for scaring wild boars and saving fawns before mowing.",
+                p2_title: "Forest Fire Spotter VTOL",
+                p2_desc: "Long-range hybrid VTOL fixed-wing drone with a 40 km operational radius, built for early detection of forest wildfire hotspots and smoke columns via thermal vision.",
+                p3_title: "Solar & Gas Infra Inspector",
+                p3_desc: "Autonomous Drone-in-a-Box solution for routine automated thermographic inspection of solar farms (hotspot detection) and pipeline methane leak scouting.",
+                spec_flight_time: "FLIGHT TIME",
+                spec_coverage: "COVERAGE",
+                spec_cost: "BOM COST",
+                btn_view_project: "View Project Datasheet",
+                btn_coming_soon: "Coming Soon"
+            },
+            uk: {
+                hero_badge: "OPEN HARDWARE & UAV CONCEPTS",
+                hero_title: "База Проєктів та Концепцій Дронів",
+                hero_desc: "Збірка інноваційних, бюджетних та спеціалізованих проєктів безпілотних літальних апаратів (БПЛА) для сільського господарства, інспекції та захисту довкілля.",
+                featured_projects: "Каталог Концепцій",
+                version_tag: "v1.0 • Останнє оновлення: 2026",
+                status_active: "ГОТОВИЙ ПРОЄКТ",
+                status_concept: "В РОЗРОБЦІ",
+                p1_title: "Ursus Agro-Sentinel 7\"",
+                p1_desc: "Автономний ультрабюджетний агродрон для захисту посівів (кукурудза, ріпак). Обладнаний тепловізором Caddx, бортовим ШІ-процесором NPU та сиреною 118 дБ для відлякування диких кабанів і порятунку оленят.",
+                p2_title: "Forest Fire Spotter VTOL",
+                p2_desc: "Далекобійний літак вертикального зльоту (VTOL) з радіусом 40 км для раннього виявлення осередків лісових пожеж і диму через тепловізійні сенсори.",
+                p3_title: "Solar & Gas Infra Inspector",
+                p3_desc: "Автономна док-станція Drone-in-a-Box для щоденних автоматичних інспекцій сонячних електростанцій (виявлення перегріву панелей) та моніторингу витоків метану.",
+                spec_flight_time: "ЧАС ПОЛЬОТУ",
+                spec_coverage: "ПЛОЩА",
+                spec_cost: "СОБІВАРТІСТЬ",
+                btn_view_project: "Відкрити Паспорт Проєкту",
+                btn_coming_soon: "Скоро буде"
+            },
+            ru: {
+                hero_badge: "OPEN HARDWARE & UAV CONCEPTS",
+                hero_title: "База Проектов и Концепций БПЛА",
+                hero_desc: "Коллекция инновационных, бюджетных и специализированных проектов беспилотных летательных аппаратов для сельского хозяйства, мониторинга и экологии.",
+                featured_projects: "Каталог Концепций",
+                version_tag: "v1.0 • Последнее обновление: 2026",
+                status_active: "ГОТОВЫЙ ПРОЕКТ",
+                status_concept: "В РАЗРАБОТКЕ",
+                p1_title: "Ursus Agro-Sentinel 7\"",
+                p1_desc: "Автономный ультрабюджетный агродрон для защиты полей (кукуруза, рапс). Оснащен тепловизором Caddx, бортовым ИИ-процессором NPU и сиреной 118 дБ для отпугивания кабанов и поиска детенышей косуль перед покосом.",
+                p2_title: "Forest Fire Spotter VTOL",
+                p2_desc: "Дальнолетный гибридный БПЛА вертикального взлета (VTOL) с радиусом 40 км для раннего обнаружения лесных пожаров и задымлений через тепловизор.",
+                p3_title: "Solar & Gas Infra Inspector",
+                p3_desc: "Автономный комплекс Drone-in-a-Box для регулярной проверки солнечных электростанций (поиск неисправных ячеек) и контроля утечек на газопроводах.",
+                spec_flight_time: "ВРЕМЯ ПОЛЕТА",
+                spec_coverage: "ПЛОЩАДЬ",
+                spec_cost: "СТОИМОСТЬ BOM",
+                btn_view_project: "Открыть Карту Проекта",
+                btn_coming_soon: "Скоро"
+            }
+        };
+
+        function setLanguage(lang) {
+            document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+            const activeBtn = Array.from(document.querySelectorAll('.lang-btn')).find(b => b.textContent.toLowerCase().includes(lang));
+            if (activeBtn) activeBtn.classList.add('active');
+
+            document.documentElement.lang = lang;
+            localStorage.setItem('droneideas_lang', lang);
+
+            const dict = translations[lang] || translations.pl;
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (dict[key]) {
+                    el.textContent = dict[key];
+                }
+            });
+        }
+
+        // Initialize saved language or default to pl
+        const savedLang = localStorage.getItem('droneideas_lang') || 'pl';
+        setLanguage(savedLang);
+    </script>
+</body>
+</html>
