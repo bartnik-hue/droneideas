@@ -1,0 +1,20 @@
+# Python virtual environments & bytecode
+.venv/
+*/.venv/
+__pycache__/
+*/__pycache__/
+*.py[cod]
+*$py.class
+
+# PyTorch / ML weights & models
+*.pt
+*.onnx
+*.engine
+
+# Datasets & snapshots
+yolo-camera-test/dataset/
+yolo-camera-test/snapshots/
+
+# OS specific files
+Thumbs.db
+.DS_Store

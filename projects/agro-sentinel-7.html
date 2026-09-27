@@ -536,23 +536,23 @@
             <div class="flow-container">
                 <div class="flow-step">
                     <span class="flow-num">1</span>
-                    <h5 data-i18n="step1_title">Detekcja Termiczna</h5>
-                    <p data-i18n="step1_desc">Kamera Caddx rejestruje sygnaturę cieplną (38°C) na chłodnym tle gleby (8°C).</p>
+                    <h5 data-i18n="step1_title">Skan Termowizyjny</h5>
+                    <p data-i18n="step1_desc">Kamera Caddx z pułapu 45m wykrywa źródło ciepła (38°C) w chłodnym łanie uprawy.</p>
                 </div>
                 <div class="flow-step">
                     <span class="flow-num">2</span>
-                    <h5 data-i18n="step2_title">Klasyfikacja AI NPU</h5>
-                    <p data-i18n="step2_desc">Model YOLOv8-Nano rozpoznaje sylwetkę: dzik, sarna, koźlę czy człowiek.</p>
+                    <h5 data-i18n="step2_title">Zniżenie i Doświetlenie LED</h5>
+                    <p data-i18n="step2_desc">Dron podlatuje na 15–20m i włącza silny reflektor LED (5000 lm) doświetlający cel.</p>
                 </div>
                 <div class="flow-step">
                     <span class="flow-num">3</span>
-                    <h5 data-i18n="step3_title">Rzutowanie GPS</h5>
-                    <p data-i18n="step3_desc">Z kąta kamery i lidara system wylicza koordynaty GPS i sprawdza granice pola.</p>
+                    <h5 data-i18n="step3_title">Weryfikacja Kolorowa RGB</h5>
+                    <p data-i18n="step3_desc">Kamera wysokiej rozdzielczości potwierdza gatunek i wyklucza fałszywe alarmy (kamienie).</p>
                 </div>
                 <div class="flow-step">
                     <span class="flow-num">4</span>
-                    <h5 data-i18n="step4_title">Akcja Odstraszania</h5>
-                    <p data-i18n="step4_desc">Dla dzika: zawis i seria 118 dB. Dla koźlęcia: bezwzględna cisza i log GPS.</p>
+                    <h5 data-i18n="step4_title">Decyzja i Odstraszanie</h5>
+                    <p data-i18n="step4_desc">Dzik: stroboskop LED 14 Hz + syrena 118 dB. Koźlę: natychmiastowe zgaszenie światła i log GPS.</p>
                 </div>
             </div>
         </div>
@@ -626,15 +626,15 @@
                 param_fc_soft: "Kontroler i Autopilot",
                 param_sensors: "Nawigacja i pułap",
                 sec_ai_logic: "Jak Dron Autonomicznie Podejmuje Decyzje?",
-                ai_logic_desc: "Cała pętla decyzyjna zamyka się na pokładzie w ułamku sekundy bez konieczności łączności z operatorem:",
-                step1_title: "Detekcja Termiczna",
-                step1_desc: "Kamera Caddx rejestruje sygnaturę cieplną (38°C) na chłodnym tle gleby (8°C).",
-                step2_title: "Klasyfikacja AI NPU",
-                step2_desc: "Model YOLOv8-Nano rozpoznaje sylwetkę: dzik, sarna, koźlę czy człowiek.",
-                step3_title: "Rzutowanie GPS",
-                step3_desc: "Z kąta kamery i lidara system wylicza koordynaty GPS i sprawdza granice pola.",
-                step4_title: "Akcja Odstraszania",
-                step4_desc: "Dla dzika: zawis i seria 118 dB. Dla koźlęcia: bezwzględna cisza i log GPS.",
+                ai_logic_desc: "Dwuetapowa procedura: wstępne wykrycie termowizyjne + doświetlenie LED i weryfikacja kamerą kolorową RGB:",
+                step1_title: "Skan Termowizyjny",
+                step1_desc: "Kamera Caddx z pułapu 45m wykrywa źródło ciepła (38°C) w chłodnym łanie uprawy.",
+                step2_title: "Zniżenie i Doświetlenie LED",
+                step2_desc: "Dron podlatuje na 15–20m i włącza silny reflektor LED (5000 lm) doświetlający cel.",
+                step3_title: "Weryfikacja Kolorowa RGB",
+                step3_desc: "Kamera wysokiej rozdzielczości potwierdza gatunek i wyklucza fałszywe alarmy (kamienie).",
+                step4_title: "Decyzja i Odstraszanie",
+                step4_desc: "Dzik: stroboskop LED 14 Hz + syrena 118 dB. Koźlę: natychmiastowe zgaszenie światła i log GPS.",
                 sec_cost: "Ekonomia i Przewaga Rynkowa",
                 cost_ours_desc: "Koszt kompletnych podzespołów BOM. Posiada wbudowaną syrenę 118 dB, autonomiczne AI i dedykowany soft dla rolnika. Waga zaledwie 1,47 kg.",
                 cost_comp_desc: "Ponad 6-krotnie droższy, zamknięty ekosystem, brak autonomicznego algorytmu odstraszania i syreny – wymaga ciągłego ręcznego pilotowania."
@@ -678,15 +678,15 @@
                 param_fc_soft: "Flight Controller & Firmware",
                 param_sensors: "Navigation & Terrain",
                 sec_ai_logic: "How Autonomous Decision Making Works",
-                ai_logic_desc: "The complete decision loop runs onboard in fractions of a second without requiring an active ground link:",
-                step1_title: "Thermal Detection",
-                step1_desc: "Caddx core captures 38°C animal body heat against cool 8°C soil background.",
-                step2_title: "NPU AI Inference",
-                step2_desc: "YOLOv8-Nano model classifies target: wild boar, deer, bedded fawn, or human.",
-                step3_title: "GPS Projection",
-                step3_desc: "Camera pitch and lidar range determine exact ground GPS and check field fence.",
+                ai_logic_desc: "Two-stage verification loop: wide-area thermal cueing + downward LED spotlight and high-res RGB confirmation:",
+                step1_title: "Thermal Scouting",
+                step1_desc: "Caddx core scouts from 45m AGL detecting warm heat signatures (38°C) against cool crops.",
+                step2_title: "Descend & LED Spotlight",
+                step2_desc: "Drone closes in to 15–20m and activates a high-power 5000 lm LED spotlight illuminating the target.",
+                step3_title: "High-Res RGB Verification",
+                step3_desc: "High-resolution color camera confirms animal species, eliminating false positives (warm rocks).",
                 step4_title: "Targeted Action",
-                step4_desc: "For boars: hover and 118 dB blast. For fawns: strict silence and GPS waypoint.",
+                step4_desc: "Wild Boar: 14 Hz strobe + 118 dB siren blast. Fawn: instant light shut-off and silent GPS waypoint log.",
                 sec_cost: "Cost Analysis & Competitive Advantage",
                 cost_ours_desc: "Total hardware BOM cost. Features integrated 118 dB siren, onboard AI, and custom farmer-friendly software. Total mass only 1.47 kg.",
                 cost_comp_desc: "Over 6x more expensive, closed proprietary ecosystem, lacks onboard AI deterrence logic – requires constant manual pilot control."
@@ -730,15 +730,15 @@
                 param_fc_soft: "Контролер і Автопілот",
                 param_sensors: "Навігація та висота",
                 sec_ai_logic: "Як Дрон Автономно Приймає Рішення?",
-                ai_logic_desc: "Весь цикл аналізу та реакції виконується на борту за частки секунди без потреби у радіозв'язку:",
-                step1_title: "Тепловізійне Виявлення",
-                step1_desc: "Сенсор Caddx фіксує тепло тіла (38°C) на фоні холодного ґрунту (8°C).",
-                step2_title: "ШІ-Класифікація NPU",
-                step2_desc: "Модель YOLOv8-Nano розпізнає силует: дикий кабан, косуля, оленя чи людина.",
-                step3_title: "GPS-Проекція",
-                step3_desc: "За кутом камери та лідаром обчислюються координати тварини на полі.",
-                step4_title: "Дія Відлякування",
-                step4_desc: "Для кабана: зависання та залп 118 дБ. Для оленяти: повна тиша та GPS-точка.",
+                ai_logic_desc: "Двоетапний цикл верифікації: виявлення тепловізором + LED-підсвічування та RGB-підтвердження:",
+                step1_title: "Тепловізійний Скан",
+                step1_desc: "Тепловізор Caddx з висоти 45м фіксує джерело тепла (38°C) на фоні холодного поля.",
+                step2_title: "Зниження та LED-Прожектор",
+                step2_desc: "Дрон підлітає на 15–20м та вмикає потужний світлодіодний прожектор 5000 лм для освітлення цілі.",
+                step3_title: "Кольорова RGB-Верифікація",
+                step3_desc: "Камера високої роздільної здатності точно визначає вид тварини та виключає нагріте каміння.",
+                step4_title: "Рішення та Відлякування",
+                step4_desc: "Кабан: стробоскоп 14 Гц + залп сирени 118 дБ. Оленя: негайне вимкнення світла та GPS-точка.",
                 sec_cost: "Економіка та Переваги",
                 cost_ours_desc: "Повна собівартість деталей. Має вбудовану сирену 118 дБ, автономний ШІ та простий софт для агронома. Вага лише 1,47 кг.",
                 cost_comp_desc: "Понад 6 разів дорожчий, закрита екосистема, відсутній вбудований алгоритм відлякування – потребує постійного ручного пілотування."
@@ -782,15 +782,15 @@
                 param_fc_soft: "Контроллер и прошивка",
                 param_sensors: "Навигация и высота",
                 sec_ai_logic: "Как Дрон Автономно Принимает Решения?",
-                ai_logic_desc: "Весь цикл обработки и принятия решений выполняется на борту за доли секунды без связи с базой:",
-                step1_title: "Тепловое Обнаружение",
-                step1_desc: "Камера Caddx фиксирует тепло тела (38°C) на фоне остывшей почвы (8°C).",
-                step2_title: "Классификация NPU ИИ",
-                step2_desc: "Модель YOLOv8-Nano определяет цель: кабан, косуля, лежащий детеныш или человек.",
-                step3_title: "GPS-Проекция",
-                step3_desc: "По углам камеры и лазерному лидару вычисляются точные GPS координаты цели.",
-                step4_title: "Реакция Системы",
-                step4_desc: "Для кабана: зависание и залп 118 дБ. Для детеныша: полная тишина и GPS-метка.",
+                ai_logic_desc: "Двухэтапный цикл верификации: тепловое обнаружение + LED-прожектор и RGB-подтверждение:",
+                step1_title: "Тепловой Скан",
+                step1_desc: "Тепловизор Caddx с высоты 45м фиксирует источник тепла (38°C) на остывшем поле.",
+                step2_title: "Снижение и LED-Подсветка",
+                step2_desc: "Дрон подлетает на 15–20м и включает мощный светодиодный прожектор 5000 лм для освещения цели.",
+                step3_title: "Цветная RGB-Верификация",
+                step3_desc: "Камера высокого разрешения точно распознает силуэт животного и исключает нагретые камни.",
+                step4_title: "Действие и Отпугивание",
+                step4_desc: "Кабан: стробоскоп 14 Гц + залп сирены 118 дБ. Детеныш косули: мгновенное отключение света и GPS-метка.",
                 sec_cost: "Экономика и Преимущества",
                 cost_ours_desc: "Себестоимость комплектующих BOM. Оснащен сиреной 118 дБ, бортовым ИИ и простым ПО для фермера. Вес всего 1,47 кг.",
                 cost_comp_desc: "Более чем в 6 раз дороже, закрытая экосистема, нет автоматического отпугивания – требует постоянного ручного управления."

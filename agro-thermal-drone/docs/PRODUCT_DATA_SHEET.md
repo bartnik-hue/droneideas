@@ -29,16 +29,18 @@ Wyposażony w miniaturową matrycę termowizyjną **Caddx Eclipse**, pokładowy 
 | | Pokrycie terenu na 1 locie | **ponad 50 hektarów** (21 km pokonanej trasy w siatce) |
 | | Akumulator | Pakiet Li-Ion 6S2P (12x ogniwa Molicel INR-21700-P45B, 9000 mAh) |
 | | Odporność na wiatr | Do 10–12 m/s (silniki 2807 1300KV, śmigła 7") |
-| **System Wizyjny** | Kamera termowizyjna | **Caddx Eclipse** (mikrobolometr VOx, 640×512 lub 384×288 px, 50 Hz, waga 32 g) |
-| | Kamera dzienna | Caddx Ratel 2 (podgląd dzienny z przełącznikiem obrazu) |
+| **System Wizyjny** | Kamera termowizyjna | **Caddx Eclipse** (mikrobolometr VOx, 640×512 lub 384×288 px, 50 Hz, waga 32 g) – szeroki skan z 45m |
+| | Kamera dzienna / RGB | Wysokoczuła kamera kolorowa HD/4K (np. Sony Starvis / Caddx) z przełącznikiem wideo |
+| | Doświetlenie nocne | Dolny reflektor LED 10–20W (5000 lm) o podwójnej roli (szperacz weryfikacyjny + stroboskop płoszący) |
 | | Transmisja wideo | Cyfrowa Walksnail Avatar HD Mini V2 lub analogowa 1.6W (zasięg >10 km) |
-| **Sztuczna Inteligencja** | Koprocesor pokładowy | **Rockchip NPU (RV1106)**, waga 9 g, pobór mocy < 1,5 W |
+| **Sztuczna Inteligencja** | Procedura detekcji | **Dwuetapowa (Two-Stage):** 1. Wykrycie plamy ciepła w termowizji -> 2. Zniżenie na 15m, doświetlenie LED i weryfikacja RGB |
+| | Koprocesor pokładowy | **Rockchip NPU (RV1106)**, waga 9 g, pobór mocy < 1,5 W |
 | | Model detekcji | **YOLOv8-Nano INT8** (30 FPS na żywo w locie) |
-| | Identyfikowane klasy | Dzik, Sarna/Jeleń, Koźlę leżące w trawie, Człowiek, Bydło |
+| | Identyfikowane klasy | Dzik, Sarna/Jeleń, Koźlę leżące w trawie, Człowiek, Bydło (eliminacja nagrzanych kamieni) |
 | | Rzutowanie GPS celu | Automatyczny przelicznik: piksel matrycy $\rightarrow$ współrzędne GPS celu |
 | **System Odstraszania** | Akustyka | Podwójna syrena piezoelektryczna **118 dB SPL @ 1 m** (częstotliwość 2,8–3,5 kHz) |
-| | Optyka płosząca | Dioda stroboskopowa LED 10W (błyski 14 Hz dezorientujące zwierzynę nocną) |
-| | Masa modułu | Łącznie zaledwie **45 gramów** (pobór prądu < 3W) |
+| | Optyka płosząca | Dioda stroboskopowa LED 10W (błyski 14 Hz dezorientujące zwierzynę nocną po potwierdzeniu dzika) |
+| | Masa modułu | Łącznie zaledwie **45 gramów** (pobór prądu < 3W podczas wycia) |
 | **Nawigacja i Awionika**| Autopilot | SpeedyBee F405 V4 Stack z oprogramowaniem **ArduPilot** |
 | | Pozycjonowanie | Moduł GNSS Matek M10Q (GPS/Galileo/GLONASS) + Kompas |
 | | Utrzymanie pułapu | Lidar laserowy (precyzyjne śledzenie wysokości nad łanem uprawy) |

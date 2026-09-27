@@ -1,0 +1,14 @@
+# Przykładowy plik konfiguracyjny zbioru danych dla YOLO (data.yaml)
+# Ścieżka główna do folderu ze zbiorem danych (może być względna lub bezwzględna)
+path: D:/URSUS/yolo-camera-test/dataset
+
+# Ścieżki do zdjęć treningowych i walidacyjnych
+train: images/train
+val: images/val
+
+# Definicja klas (Twoje zwierzęta)
+names:
+  0: dzik
+  1: sarna
+  2: jelen
+  3: lis
