@@ -30,7 +30,7 @@ Wyposażony w miniaturową matrycę termowizyjną **Caddx Eclipse**, pokładowy 
 | | Akumulator | Pakiet Li-Ion 6S2P (12x ogniwa Molicel INR-21700-P45B, 9000 mAh) |
 | | Odporność na wiatr | Do 10–12 m/s (silniki 2807 1300KV, śmigła 7") |
 | **System Wizyjny** | Kamera termowizyjna | **Caddx Eclipse** (mikrobolometr VOx, 640×512 lub 384×288 px, 50 Hz, waga 32 g) – szeroki skan z 45m |
-| | Kamera dzienna / RGB | Wysokoczuła kamera kolorowa HD/4K (np. Sony Starvis / Caddx) z przełącznikiem wideo |
+| | Kamera dzienna / RGB | **SIYI A8 mini** (1/1.7" Sony Starlight 4K, 6X zoom, 3-osiowy gimbal bezszczotkowy, slot MicroSD 4K, waga zaledwie 95 g) |
 | | Doświetlenie nocne | Dolny reflektor LED 10–20W (5000 lm) o podwójnej roli (szperacz weryfikacyjny + stroboskop płoszący) |
 | | Transmisja wideo | Cyfrowa Walksnail Avatar HD Mini V2 lub analogowa 1.6W (zasięg >10 km) |
 | **Sztuczna Inteligencja** | Procedura detekcji | **Dwuetapowa (Two-Stage):** 1. Wykrycie plamy ciepła w termowizji -> 2. Zniżenie na 15m, doświetlenie LED i weryfikacja RGB |
