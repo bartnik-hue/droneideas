@@ -548,6 +548,21 @@
                         <td class="param" data-i18n="param_battery_reserve">Bilans baterii w planerze</td>
                         <td class="val">Twarda rezerwa min. 15% RTL z automatycznym podziałem zbyt dużych pól</td>
                     </tr>
+                    <tr>
+                        <td class="cat" data-i18n="cat_dock">Stacja Dokująca</td>
+                        <td class="param" data-i18n="param_dock_rtk">Pozycjonowanie i Dokowanie</td>
+                        <td class="val" data-i18n="val_dock_rtk">Stacja bazowa RTK (u-blox ZED-F9P, dokładność 1-2 cm) + AprilTag IR</td>
+                    </tr>
+                    <tr>
+                        <td class="cat" data-i18n="cat_dock">Stacja Dokująca</td>
+                        <td class="param" data-i18n="param_dock_charge">Autonomiczne Ładowanie</td>
+                        <td class="val" data-i18n="val_dock_charge">Płyta stykowa CC-CV (25.2V 7A, odcięcie 0V safe) + opcja solarno-buforowa LiFePO4</td>
+                    </tr>
+                    <tr>
+                        <td class="cat" data-i18n="cat_dock">Stacja Dokująca</td>
+                        <td class="param" data-i18n="param_dock_meteo">Sensory Pogody i Łączność</td>
+                        <td class="val" data-i18n="val_dock_meteo">Ultradźwiękowy anemometr, czujnik deszczu, modem LTE 4G + Wi-Fi 5 GHz (zrzut 4K)</td>
+                    </tr>
                 </tbody>
             </table>
         </div>
@@ -605,7 +620,33 @@
             </div>
         </div>
 
-        <!-- 5. KOSZTORYS I PRZEWAGA RYNKOWA -->
+        <!-- 5. AUTONOMICZNA STACJA BAZOWA (DRONE-IN-A-BOX) -->
+        <div class="section-card">
+            <h3 class="section-heading">🏠 <span data-i18n="sec_base_station">Autonomiczna Stacja Bazowa (Drone-in-a-Box)</span></h3>
+            <p style="color: var(--text-secondary); margin-bottom: 1.25rem;" data-i18n="base_station_desc">
+                Opcjonalna naziemna stacja dokująca umożliwiająca w 100% bezzałogowy cykl: automatyczny start z nocnego harmonogramu, centymetrowe lądowanie RTK + wizja, ładowanie stykowe oraz zrzut wideo 4K i raportów.
+            </p>
+            <div class="use-cases-grid">
+                <div class="use-case-item">
+                    <h4>📡 <span data-i18n="dock1_title">Baza GNSS RTK + AprilTag IR</span></h4>
+                    <p data-i18n="dock1_desc">Moduł u-blox ZED-F9P z anteną geodezyjną przesyła poprawki RTCM (dokładność 1-2 cm). W nocy dolny sensor śledzi oświetlony znacznik AprilTag IR (850nm).</p>
+                </div>
+                <div class="use-case-item">
+                    <h4>⚡ <span data-i18n="dock2_title">Autonomiczne Ładowanie Stykowe</span></h4>
+                    <p data-i18n="dock2_desc">Płyta lądowiska z autodetekcją polaryzacji. Szybkie ładowanie CC-CV (25.2V 7A, 50-60 min). Styki są bezpiecznie odcięte (0V), dopóki dron nie wyląduje.</p>
+                </div>
+                <div class="use-case-item">
+                    <h4>🌤️ <span data-i18n="dock3_title">Stacja Meteo i Bezpieczeństwo</span></h4>
+                    <p data-i18n="dock3_desc">Ultradźwiękowy anemometr i optyczny czujnik opadów. Blokada startu przy wietrze >10 m/s lub deszczu; awaryjne wezwanie drona (RTL) przy nagłym załamaniu pogody.</p>
+                </div>
+                <div class="use-case-item">
+                    <h4>📶 <span data-i18n="dock4_title">Zrzut Wideo 4K i Alerty LTE</span></h4>
+                    <p data-i18n="dock4_desc">Po wylądowaniu Wi-Fi 5 GHz natychmiast zgrywa nagrania 4K i raporty AI. Przemysłowy modem LTE wysyła rolnikowi alerty ze zdjęciami dzików na telefon.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 6. KOSZTORYS I PRZEWAGA RYNKOWA -->
         <div class="section-card">
             <h3 class="section-heading">💰 <span data-i18n="sec_cost">Ekonomia i Przewaga Rynkowa</span></h3>
             <div class="cost-comparison">
@@ -700,7 +741,24 @@
                 step4_desc: "Dzik: stroboskop LED 14 Hz + syrena 118 dB. Koźlę: natychmiastowe zgaszenie światła i log GPS.",
                 sec_cost: "Ekonomia i Przewaga Rynkowa",
                 cost_ours_desc: "Koszt kompletnych podzespołów BOM. Posiada wbudowaną syrenę 118 dB, autonomiczne AI i dedykowany soft dla rolnika. Waga zaledwie 1,47 kg.",
-                cost_comp_desc: "Ponad 6-krotnie droższy, zamknięty ekosystem, brak autonomicznego algorytmu odstraszania i syreny – wymaga ciągłego ręcznego pilotowania."
+                cost_comp_desc: "Ponad 6-krotnie droższy, zamknięty ekosystem, brak autonomicznego algorytmu odstraszania i syreny – wymaga ciągłego ręcznego pilotowania.",
+                cat_dock: "Stacja Dokująca",
+                param_dock_rtk: "Pozycjonowanie i Dokowanie",
+                val_dock_rtk: "Stacja bazowa RTK (u-blox ZED-F9P, dokładność 1-2 cm) + AprilTag IR",
+                param_dock_charge: "Autonomiczne Ładowanie",
+                val_dock_charge: "Płyta stykowa CC-CV (25.2V 7A, odcięcie 0V safe) + opcja solarno-buforowa LiFePO4",
+                param_dock_meteo: "Sensory Pogody i Łączność",
+                val_dock_meteo: "Ultradźwiękowy anemometr, czujnik deszczu, modem LTE 4G + Wi-Fi 5 GHz (zrzut 4K)",
+                sec_base_station: "Autonomiczna Stacja Bazowa (Drone-in-a-Box)",
+                base_station_desc: "Opcjonalna naziemna stacja dokująca umożliwiająca w 100% bezzałogowy cykl: automatyczny start z nocnego harmonogramu, centymetrowe lądowanie RTK + wizja, ładowanie stykowe oraz zrzut wideo 4K i raportów.",
+                dock1_title: "Baza GNSS RTK + AprilTag IR",
+                dock1_desc: "Moduł u-blox ZED-F9P z anteną geodezyjną przesyła poprawki RTCM (dokładność 1-2 cm). W nocy dolny sensor śledzi oświetlony znacznik AprilTag IR (850nm).",
+                dock2_title: "Autonomiczne Ładowanie Stykowe",
+                dock2_desc: "Płyta lądowiska z autodetekcją polaryzacji. Szybkie ładowanie CC-CV (25.2V 7A, 50-60 min). Styki są bezpiecznie odcięte (0V), dopóki dron nie wyląduje.",
+                dock3_title: "Stacja Meteo i Bezpieczeństwo",
+                dock3_desc: "Ultradźwiękowy anemometr i optyczny czujnik opadów. Blokada startu przy wietrze >10 m/s lub deszczu; awaryjne wezwanie drona (RTL) przy nagłym załamaniu pogody.",
+                dock4_title: "Zrzut Wideo 4K i Alerty LTE",
+                dock4_desc: "Po wylądowaniu Wi-Fi 5 GHz natychmiast zgrywa nagrania 4K i raporty AI. Przemysłowy modem LTE wysyła rolnikowi alerty ze zdjęciami dzików na telefon."
             },
             en: {
                 back_to_index: "Back to Projects Catalog",
@@ -767,7 +825,24 @@
                 step4_desc: "Wild Boar: 14 Hz strobe + 118 dB siren blast. Fawn: instant light shut-off and silent GPS waypoint log.",
                 sec_cost: "Cost Analysis & Competitive Advantage",
                 cost_ours_desc: "Total hardware BOM cost. Features integrated 118 dB siren, onboard AI, and custom farmer-friendly software. Total mass only 1.47 kg.",
-                cost_comp_desc: "Over 6x more expensive, closed proprietary ecosystem, lacks onboard AI deterrence logic – requires constant manual pilot control."
+                cost_comp_desc: "Over 6x more expensive, closed proprietary ecosystem, lacks onboard AI deterrence logic – requires constant manual pilot control.",
+                cat_dock: "Docking Station",
+                param_dock_rtk: "Positioning & Docking",
+                val_dock_rtk: "RTK base station (u-blox ZED-F9P, 1-2 cm accuracy) + AprilTag IR",
+                param_dock_charge: "Autonomous Charging",
+                val_dock_charge: "Contact CC-CV pad (25.2V 7A, 0V safe disconnect) + Solar/LiFePO4 off-grid option",
+                param_dock_meteo: "Weather Sensors & Comms",
+                val_dock_meteo: "Ultrasonic anemometer, rain sensor, 4G LTE modem + 5 GHz Wi-Fi (4K dump)",
+                sec_base_station: "Autonomous Base Station (Drone-in-a-Box)",
+                base_station_desc: "Optional ground docking station enabling a 100% unmanned lifecycle: scheduled night takeoffs, 1-2 cm RTK precision landing, contact charging, and high-speed 4K/report data offload.",
+                dock1_title: "GNSS RTK Base + AprilTag IR",
+                dock1_desc: "u-blox ZED-F9P survey-grade base transmits RTCM corrections (1-2 cm accuracy). At night, downward sensor tracks illuminated 850nm AprilTag IR marker.",
+                dock2_title: "Autonomous Contact Charging",
+                dock2_desc: "Landing pad with auto-polarity detection. CC-CV fast charging (25.2V 7A, 50-60 min). Terminals stay safely disconnected (0V) until drone touchdown is confirmed.",
+                dock3_title: "Weather Station & Flight Safety",
+                dock3_desc: "Ultrasonic sonic anemometer and optical precipitation detector. Aborts takeoff in winds >10 m/s or rain; triggers emergency RTL if weather deteriorates.",
+                dock4_title: "4K Video Offload & LTE Alerts",
+                dock4_desc: "Upon touchdown, 5 GHz Wi-Fi dumps 4K footage and AI threat logs. Industrial LTE router sends instant smartphone alerts with boar snapshots and GPS pins."
             },
             uk: {
                 back_to_index: "Назад до каталогу проєктів",
@@ -834,7 +909,24 @@
                 step4_desc: "Кабан: стробоскоп 14 Гц + залп сирени 118 дБ. Оленя: негайне вимкнення світла та GPS-точка.",
                 sec_cost: "Економіка та Переваги",
                 cost_ours_desc: "Повна собівартість деталей. Має вбудовану сирену 118 дБ, автономний ШІ та простий соフト для агронома. Вага лише 1,47 кг.",
-                cost_comp_desc: "Понад 6 разів дорожчий, закрита екосистема, відсутній вбудований алгоритм відлякування – потребує постійного ручного пілотування."
+                cost_comp_desc: "Понад 6 разів дорожчий, закрита екосистема, відсутній вбудований алгоритм відлякування – потребує постійного ручного пілотування.",
+                cat_dock: "Док-Станція",
+                param_dock_rtk: "Позиціонування та Посадка",
+                val_dock_rtk: "Базова станція RTK (u-blox ZED-F9P, точність 1-2 см) + AprilTag IR",
+                param_dock_charge: "Автономна Зарядка",
+                val_dock_charge: "Контактна пластина CC-CV (25.2V 7A, 0V безпека) + автономне живлення СЕС/LiFePO4",
+                param_dock_meteo: "Метеодатчики та Зв'язок",
+                val_dock_meteo: "Ультразвуковий анемометр, датчик дощу, LTE-модем + Wi-Fi 5 ГГц (скидання 4K)",
+                sec_base_station: "Автономна Базова Станція (Drone-in-a-Box)",
+                base_station_desc: "Наземна док-станція для 100% безпілотної роботи: автостарт за розкладом, сантиметрова посадка RTK + візуальні мітки, контактне заряджання та вивантаження звітів.",
+                dock1_title: "База GNSS RTK + AprilTag IR",
+                dock1_desc: "Модуль u-blox ZED-F9P з геодезичною антеною передає RTCM-поправки (точність 1-2 см). Вночі нижній сенсор веде дрон по інфрачервоній мітці AprilTag IR (850нм).",
+                dock2_title: "Автономне Контактне Заряджання",
+                dock2_desc: "Посадковий майданчик з автовизначенням полярності. Швидка зарядка CC-CV (25.2V 7A, 50-60 хв). Контакти знеструмлені (0V) до фіксації посадки.",
+                dock3_title: "Метеостанція та Безпека",
+                dock3_desc: "Ультразвуковий анемометр та оптичний сенсор дощу. Блокування вильоту при вітрі >10 м/с або дощі; аварійне повернення (RTL) у разі негоди.",
+                dock4_title: "Скидання Відео 4K та LTE-Алерти",
+                dock4_desc: "Після посадки Wi-Fi 5 ГГц передає відео 4K та ШІ-звіти. Промисловий LTE-модем миттєво надсилає фермеру сповіщення з фото кабанів на смартфон."
             },
             ru: {
                 back_to_index: "Вернуться в каталог проектов",
@@ -901,7 +993,24 @@
                 step4_desc: "Кабан: стробоскоп 14 Гц + залп сирены 118 дБ. Детеныш косули: мгновенное отключение света и GPS-метка.",
                 sec_cost: "Экономика и Преимущества",
                 cost_ours_desc: "Себестоимость комплектующих BOM. Оснащен сиреной 118 дБ, бортовым ИИ и простым ПО для фермера. Вес всего 1,47 кг.",
-                cost_comp_desc: "Более чем в 6 раз дороже, закрытая экосистема, нет автоматического отпугивания – требует постоянного ручного управления."
+                cost_comp_desc: "Более чем в 6 раз дороже, закрытая экосистема, нет автоматического отпугивания – требует постоянного ручного управления.",
+                cat_dock: "Док-Станция",
+                param_dock_rtk: "Позиционирование и Посадка",
+                val_dock_rtk: "Базовая станция RTK (u-blox ZED-F9P, точность 1-2 см) + AprilTag IR",
+                param_dock_charge: "Автономная Зарядка",
+                val_dock_charge: "Контактная площадка CC-CV (25.2V 7A, 0V защита) + солнечная батарея/LiFePO4",
+                param_dock_meteo: "Метеодатчики и Связь",
+                val_dock_meteo: "Ультразвуковой анемометр, датчик дождя, LTE-модем + Wi-Fi 5 ГГц (сброс 4K)",
+                sec_base_station: "Автономная Базовая Станция (Drone-in-a-Box)",
+                base_station_desc: "Наземная док-станция для 100% автономного цикла: старт по ночному графику, сантиметровая посадка RTK + оптика, контактная зарядка и сброс видео 4K и отчетов.",
+                dock1_title: "База GNSS RTK + AprilTag IR",
+                dock1_desc: "Модуль u-blox ZED-F9P с геодезической антенной передает поправки RTCM (1-2 см). Ночью нижний сенсор наводится на инфракрасную метку AprilTag IR (850 нм).",
+                dock2_title: "Автономная Контактная Зарядка",
+                dock2_desc: "Посадочная площадка с автоопределением полярности. Быстрая зарядка CC-CV (25.2V 7A, 50-60 мин). Контакты обесточены (0V) до момента посадки.",
+                dock3_title: "Метеостанция и Безопасность",
+                dock3_desc: "Ультразвуковой анемометр и оптический датчик дождя. Блокировка вылета при ветре >10 м/s или осадках; возврат на базу (RTL) при ухудшении погоды.",
+                dock4_title: "Сброс Видео 4K и LTE-Оповещения",
+                dock4_desc: "После посадки Wi-Fi 5 ГГц выгружает записи 4K и отчеты ИИ. Промышленный LTE-модем моментально шлет фермеру оповещения с фото кабанов на телефон."
             }
         };
 
