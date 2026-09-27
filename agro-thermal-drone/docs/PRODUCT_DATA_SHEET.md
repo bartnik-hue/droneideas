@@ -45,11 +45,24 @@ Wyposażony w miniaturową matrycę termowizyjną **Caddx Eclipse**, pokładowy 
 | | Pozycjonowanie | Moduł GNSS Matek M10Q (GPS/Galileo/GLONASS) + Kompas |
 | | Utrzymanie pułapu | Lidar laserowy (precyzyjne śledzenie wysokości nad łanem uprawy) |
 | **Oprogramowanie GCS** | Aplikacja sterująca | Dedykowana aplikacja **"Ursus Agro-Pilot"** (na tablet/laptop) |
-| | Funkcjonalności | 1-przyciskowy start misji, import granic działek z ARiMR/Geoportalu, automatyczny raport PDF |
+| **Stacja Dokująca (Opcja)**| Pozycjonowanie i Dokowanie | Stacja bazowa RTK (u-blox ZED-F9P, precyzja 1–2 cm) + optyczny AprilTag IR (850 nm) |
+| | Ładowanie i Bezpieczeństwo | Płyta stykowa CC-CV (25,2V 7A, 50-60 min) z autodetekcją polaryzacji i odcięciem 0V |
+| | Sensoryka Pogodowa | Ultradźwiękowy anemometr (wiatr), optyczny czujnik opadów deszczu, modem 4G LTE |
 
 ---
 
-## 4. KOSZT I EKONOMIA PROJEKTU
-* **Szacowany koszt jednostkowy komponentów (BOM):** **~3 500 – 3 800 PLN netto**
-* **Porównanie z konkurencją:** Tradycyjny dron przemysłowy z termowizją (np. DJI Mavic 3 Enterprise Thermal) to wydatek rzędu **25 000 – 30 000 PLN** i brak wbudowanego systemu odstraszania.
-* **Cena rynkowa (propozycja):** 6 900 – 8 900 PLN brutto (marża brutto na poziomie >100% przy zachowaniu bezkonkurencyjnej ceny dla rolnika).
+## 4. KOSZT I EKONOMIA PROJEKTU (ZESTAWIENIE MODUŁOWE)
+
+### 4.1. Wariant 1: Dron "Agro-Sentinel 7"" Solo (Manualny start z plecaka)
+* **Koszt komponentów (BOM):** **~5 750 PLN netto** (z kamerą termowizyjną Caddx 640 VOx, 3-osiowym gimbalem 4K SIYI A8 mini, NPU RV1106, RTK Rover i syreną 118 dB)
+* **Sugerowana cena detaliczna:** **~11 900 PLN brutto**
+* **Porównanie rynkowe:** DJI Mavic 3 Enterprise Thermal to wydatek rzędu **~27 000 PLN brutto** (nasz system jest ponad 2× tańszy, a posiada wbudowaną syrenę płoszącą, stroboskop i NPU AI).
+
+### 4.2. Wariant 2: Pełny System Autonomiczny (Dron + Stacja Dokująca 230V)
+* **Koszt komponentów (BOM):** **~11 130 PLN netto** (Dron ~5 755 zł + Stacja dokująca ze stacją meteo i bazą RTK ~5 375 zł)
+* **Sugerowana cena detaliczna:** **~23 900 PLN brutto**
+* **Porównanie rynkowe:** Komercyjna stacja **DJI Dock 2 + Matrice 3TD** kosztuje **~54 000 PLN brutto** (nasz system oferuje 100% autonomii nocnej przy ponad 2-krotnie niższej cenie i dedykowanym algorytmie ochrony przed dzikami).
+
+### 4.3. Wariant 3: System Polowy Off-Grid (Dron + Stacja + Solary 380W + LiFePO4)
+* **Koszt komponentów (BOM):** **~13 270 PLN netto** (w tym panel PV 380W, regulator MPPT i magazyn energii LiFePO4 1,28 kWh)
+* **Sugerowana cena detaliczna:** **~27 900 PLN brutto** (odpowiednik przemysłowych stacji Heisha / Percepto za 80 000 – 120 000 PLN).

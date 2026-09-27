@@ -422,12 +422,12 @@
                     <div class="metric-val">> 50 HA</div>
                 </div>
                 <div class="metric-box">
-                    <div class="metric-label" data-i18n="m_weight">WAGA STARTOWA</div>
-                    <div class="metric-val">1,47 KG</div>
+                    <div class="metric-label" data-i18n="m_bom_drone">BOM DRON SOLO</div>
+                    <div class="metric-val">~5 750 PLN</div>
                 </div>
                 <div class="metric-box">
-                    <div class="metric-label" data-i18n="m_bom_cost">KOSZT PODZESPOŁÓW</div>
-                    <div class="metric-val">~3700 PLN</div>
+                    <div class="metric-label" data-i18n="m_bom_dock">BOM DRON + DOCK</div>
+                    <div class="metric-val">~11 130 PLN</div>
                 </div>
             </div>
         </div>
@@ -651,17 +651,31 @@
             <h3 class="section-heading">💰 <span data-i18n="sec_cost">Ekonomia i Przewaga Rynkowa</span></h3>
             <div class="cost-comparison">
                 <div class="cost-box ours">
-                    <span class="tag" style="background: rgba(16,185,129,0.25);">PROJEKT URSUS 7"</span>
-                    <div class="cost-price">~3 700 PLN</div>
-                    <p style="color: var(--text-secondary); font-size: 0.9rem;" data-i18n="cost_ours_desc">
-                        Koszt kompletnych podzespołów BOM. Posiada wbudowaną syrenę 118 dB, autonomiczne AI i dedykowany soft dla rolnika. Waga zaledwie 1,47 kg.
+                    <span class="tag" style="background: rgba(16,185,129,0.25);" data-i18n="pkg1_tag">DRON URSUS SOLO</span>
+                    <div class="cost-price">~5 750 PLN</div>
+                    <p style="color: var(--text-secondary); font-size: 0.85rem;" data-i18n="pkg1_desc">
+                        BOM gotowego quadcoptera 7" z kamerą Caddx 640 VOx, gimbalem 4K SIYI A8 mini, NPU RV1106, RTK Rover i syreną 118 dB. Odpowiednik (DJI Mavic 3T) to ~27 000 PLN.
+                    </p>
+                </div>
+                <div class="cost-box ours">
+                    <span class="tag" style="background: rgba(16,185,129,0.25);" data-i18n="pkg2_tag">SYSTEM: DRON + STACJA BAZOWA</span>
+                    <div class="cost-price">~11 130 PLN</div>
+                    <p style="color: var(--text-secondary); font-size: 0.85rem;" data-i18n="pkg2_desc">
+                        100% autonomiczny system: Dron + stacja dokująca 230V ze stacją meteo, bazą RTK u-blox F9P, ładowaniem stykowym i modemem 4G. Odpowiednik (DJI Dock 2) to ~54 000 PLN.
+                    </p>
+                </div>
+                <div class="cost-box ours">
+                    <span class="tag" style="background: rgba(16,185,129,0.25);" data-i18n="pkg3_tag">SYSTEM POLOWY OFF-GRID</span>
+                    <div class="cost-price">~13 270 PLN</div>
+                    <p style="color: var(--text-secondary); font-size: 0.85rem;" data-i18n="pkg3_desc">
+                        Praca w szczerym polu: Dron + Stacja Dokująca + panel PV 380W, regulator MPPT i akumulator LiFePO4 1,28 kWh. Przemysłowa konkurencja (Heisha/Percepto) to 80 000–120 000 PLN.
                     </p>
                 </div>
                 <div class="cost-box competitor">
-                    <span class="tag" style="background: rgba(255,255,255,0.05); color: var(--text-muted); border-color: var(--border);">KOMERCYJNA KONKURENCJA (np. DJI M3T)</span>
-                    <div class="cost-price">~25 000+ PLN</div>
-                    <p style="color: var(--text-secondary); font-size: 0.9rem;" data-i18n="cost_comp_desc">
-                        Ponad 6-krotnie droższy, zamknięty ekosystem, brak autonomicznego algorytmu odstraszania i syreny – wymaga ciągłego ręcznego pilotowania.
+                    <span class="tag" style="background: rgba(255,255,255,0.05); color: var(--text-muted); border-color: var(--border);" data-i18n="comp_tag">KOMERCYJNA KONKURENCJA</span>
+                    <div class="cost-price">54 000+ PLN</div>
+                    <p style="color: var(--text-secondary); font-size: 0.85rem;" data-i18n="comp_desc">
+                        DJI Dock 2 / M3TD: ponad 4-krotnie droższy, płatne abonamenty FlightHub, brak syreny 118 dB i brak algorytmu aktywnego odstraszania dzików.
                     </p>
                 </div>
             </div>
@@ -740,8 +754,16 @@
                 step4_title: "Decyzja i Odstraszanie",
                 step4_desc: "Dzik: stroboskop LED 14 Hz + syrena 118 dB. Koźlę: natychmiastowe zgaszenie światła i log GPS.",
                 sec_cost: "Ekonomia i Przewaga Rynkowa",
-                cost_ours_desc: "Koszt kompletnych podzespołów BOM. Posiada wbudowaną syrenę 118 dB, autonomiczne AI i dedykowany soft dla rolnika. Waga zaledwie 1,47 kg.",
-                cost_comp_desc: "Ponad 6-krotnie droższy, zamknięty ekosystem, brak autonomicznego algorytmu odstraszania i syreny – wymaga ciągłego ręcznego pilotowania.",
+                m_bom_drone: "BOM DRON SOLO",
+                m_bom_dock: "BOM DRON + DOCK",
+                pkg1_tag: "DRON URSUS SOLO",
+                pkg1_desc: "BOM gotowego quadcoptera 7\" z kamerą Caddx 640 VOx, gimbalem 4K SIYI A8 mini, NPU RV1106, RTK Rover i syreną 118 dB. Odpowiednik (DJI Mavic 3T) to ~27 000 PLN.",
+                pkg2_tag: "SYSTEM: DRON + STACJA BAZOWA",
+                pkg2_desc: "100% autonomiczny system: Dron + stacja dokująca 230V ze stacją meteo, bazą RTK u-blox F9P, ładowaniem stykowym i modemem 4G. Odpowiednik (DJI Dock 2) to ~54 000 PLN.",
+                pkg3_tag: "SYSTEM POLOWY OFF-GRID",
+                pkg3_desc: "Praca w szczerym polu: Dron + Stacja Dokująca + panel PV 380W, regulator MPPT i akumulator LiFePO4 1,28 kWh. Przemysłowa konkurencja (Heisha/Percepto) to 80 000–120 000 PLN.",
+                comp_tag: "KOMERCYJNA KONKURENCJA",
+                comp_desc: "DJI Dock 2 / M3TD: ponad 4-krotnie droższy, płatne abonamenty FlightHub, brak syreny 118 dB i brak algorytmu aktywnego odstraszania dzików.",
                 cat_dock: "Stacja Dokująca",
                 param_dock_rtk: "Pozycjonowanie i Dokowanie",
                 val_dock_rtk: "Stacja bazowa RTK (u-blox ZED-F9P, dokładność 1-2 cm) + AprilTag IR",
@@ -824,8 +846,16 @@
                 step4_title: "Targeted Action",
                 step4_desc: "Wild Boar: 14 Hz strobe + 118 dB siren blast. Fawn: instant light shut-off and silent GPS waypoint log.",
                 sec_cost: "Cost Analysis & Competitive Advantage",
-                cost_ours_desc: "Total hardware BOM cost. Features integrated 118 dB siren, onboard AI, and custom farmer-friendly software. Total mass only 1.47 kg.",
-                cost_comp_desc: "Over 6x more expensive, closed proprietary ecosystem, lacks onboard AI deterrence logic – requires constant manual pilot control.",
+                m_bom_drone: "STANDALONE DRONE BOM",
+                m_bom_dock: "DRONE + DOCK BOM",
+                pkg1_tag: "URSUS DRONE SOLO",
+                pkg1_desc: "7\" quadcopter BOM with Caddx 640 VOx thermal, SIYI A8 mini 4K gimbal, RV1106 NPU, RTK Rover, and 118 dB siren. Market equivalent (DJI Mavic 3T) costs ~27,000 PLN (~$7,000 USD).",
+                pkg2_tag: "SYSTEM: DRONE + BASE DOCK",
+                pkg2_desc: "100% autonomous drone-in-a-box: Drone + 230V docking station with meteo sensors, u-blox F9P RTK base, contact charging, and 4G modem. Equivalent (DJI Dock 2) is ~54,000 PLN.",
+                pkg3_tag: "OFF-GRID FIELD DOCK",
+                pkg3_desc: "Self-powered field unit: Drone + Dock + 380W PV panel, MPPT solar controller, and 1.28 kWh LiFePO4 battery pack. Industrial rivals (Heisha/Percepto) cost 80,000–120,000 PLN.",
+                comp_tag: "COMMERCIAL COMPETITION",
+                comp_desc: "DJI Dock 2 / M3TD: over 4x more expensive, recurring FlightHub cloud fees, lacks high-decibel siren and autonomous boar deterrent behavior.",
                 cat_dock: "Docking Station",
                 param_dock_rtk: "Positioning & Docking",
                 val_dock_rtk: "RTK base station (u-blox ZED-F9P, 1-2 cm accuracy) + AprilTag IR",
@@ -908,8 +938,16 @@
                 step4_title: "Рішення та Відлякування",
                 step4_desc: "Кабан: стробоскоп 14 Гц + залп сирени 118 дБ. Оленя: негайне вимкнення світла та GPS-точка.",
                 sec_cost: "Економіка та Переваги",
-                cost_ours_desc: "Повна собівартість деталей. Має вбудовану сирену 118 дБ, автономний ШІ та простий соフト для агронома. Вага лише 1,47 кг.",
-                cost_comp_desc: "Понад 6 разів дорожчий, закрита екосистема, відсутній вбудований алгоритм відлякування – потребує постійного ручного пілотування.",
+                m_bom_drone: "СОБІВАРТІСТЬ ДРОНА",
+                m_bom_dock: "ДРОН + ДОК-СТАНЦІЯ",
+                pkg1_tag: "ДРОН URSUS СОЛО",
+                pkg1_desc: "BOM готового 7\" квадрокоптера з тепловізором Caddx 640 VOx, 4K підвісом SIYI A8 mini, NPU RV1106, RTK Rover та сиреною 118 дБ. Аналог (DJI Mavic 3T) коштує ~27 000 PLN.",
+                pkg2_tag: "СИСТЕМА: ДРОН + ДОК-СТАНЦІЯ",
+                pkg2_desc: "100% автономна система: Дрон + станція 230V з метеодатчиками, RTK базою u-blox F9P, контактною зарядкою та 4G. Аналог (DJI Dock 2) коштує ~54 000 PLN.",
+                pkg3_tag: "АВТОНОМНИЙ ПОЛЬОВИЙ ДОК",
+                pkg3_desc: "Робота в полі без мережі: Дрон + Док-станція + сонячна панель 380W, MPPT та акумулятор LiFePO4 1,28 кВт·год. Промислові аналоги (Heisha/Percepto) від 80 000–120 000 PLN.",
+                comp_tag: "КОМЕРЦІЙНІ АНАЛОГИ",
+                comp_desc: "DJI Dock 2 / M3TD: у 4 рази дорожчий, платні підписки FlightHub, відсутня сирена 118 дБ та алгоритми активного відлякування кабанів.",
                 cat_dock: "Док-Станція",
                 param_dock_rtk: "Позиціонування та Посадка",
                 val_dock_rtk: "Базова станція RTK (u-blox ZED-F9P, точність 1-2 см) + AprilTag IR",
@@ -992,8 +1030,16 @@
                 step4_title: "Действие и Отпугивание",
                 step4_desc: "Кабан: стробоскоп 14 Гц + залп сирены 118 дБ. Детеныш косули: мгновенное отключение света и GPS-метка.",
                 sec_cost: "Экономика и Преимущества",
-                cost_ours_desc: "Себестоимость комплектующих BOM. Оснащен сиреной 118 дБ, бортовым ИИ и простым ПО для фермера. Вес всего 1,47 кг.",
-                cost_comp_desc: "Более чем в 6 раз дороже, закрытая экосистема, нет автоматического отпугивания – требует постоянного ручного управления.",
+                m_bom_drone: "СЕБЕСТОИМОСТЬ ДРОНА",
+                m_bom_dock: "ДРОН + ДОК-СТАНЦИЯ",
+                pkg1_tag: "ДРОН URSUS СОЛО",
+                pkg1_desc: "BOM готового 7\" квадрокоптера с тепловизором Caddx 640 VOx, 4K подвесом SIYI A8 mini, NPU RV1106, RTK Rover и сиреной 118 дБ. Аналог (DJI Mavic 3T) стоит ~27 000 PLN.",
+                pkg2_tag: "СИСТЕМА: ДРОН + ДОК-СТАНЦИЯ",
+                pkg2_desc: "100% автономная система: Дрон + док-станция 230V с метеостанцией, базой RTK u-blox F9P, контактной зарядкой и 4G. Аналог (DJI Dock 2) стоит ~54 000 PLN.",
+                pkg3_tag: "АВТОНОМНЫЙ ДОК OFF-GRID",
+                pkg3_desc: "Работа в поле без сети: Дрон + Док-станция + солнечная панель 380W, MPPT и LiFePO4 1,28 кВт·ч. Промышленные аналоги (Heisha/Percepto) от 80 000–120 000 PLN.",
+                comp_tag: "КОММЕРЧЕСКИЕ АНАЛОГИ",
+                comp_desc: "DJI Dock 2 / M3TD: более чем в 4 раза дороже, платные подписки FlightHub, нет сирены 118 дБ и нет алгоритмов активного отпугивания кабанов.",
                 cat_dock: "Док-Станция",
                 param_dock_rtk: "Позиционирование и Посадка",
                 val_dock_rtk: "Базовая станция RTK (u-blox ZED-F9P, точность 1-2 см) + AprilTag IR",
