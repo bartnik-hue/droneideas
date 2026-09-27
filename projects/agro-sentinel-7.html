@@ -523,6 +523,26 @@
                         <td class="param" data-i18n="param_sensors">Nawigacja i pułap</td>
                         <td class="val">Matek M10Q GNSS (GPS/Galileo) + Lidar laserowy (Terrain Following)</td>
                     </tr>
+                    <tr>
+                        <td class="cat" data-i18n="cat_ops">Logistyka</td>
+                        <td class="param" data-i18n="param_mission_upload">Wgrywanie planu i raporty</td>
+                        <td class="val">Karta MicroSD lub kabel USB-C (gotowy plik PDF i zdjęcia 4K na karcie)</td>
+                    </tr>
+                    <tr>
+                        <td class="cat" data-i18n="cat_ops">Logistyka</td>
+                        <td class="param" data-i18n="param_start_mode">Start i tranzyt</td>
+                        <td class="val">Start z dowolnego miejsca + wznios na 40m i automatyczny dolot do pola</td>
+                    </tr>
+                    <tr>
+                        <td class="cat" data-i18n="cat_ops">Bezpieczeństwo</td>
+                        <td class="param" data-i18n="param_gps_lock">Blokada GPS i sygnalizator</td>
+                        <td class="val">Blokada startu do osiągnięcia 3D Fix (min. 16 satelitów) + dioda LED gotowości</td>
+                    </tr>
+                    <tr>
+                        <td class="cat" data-i18n="cat_ops">Bezpieczeństwo</td>
+                        <td class="param" data-i18n="param_battery_reserve">Bilans baterii w planerze</td>
+                        <td class="val">Twarda rezerwa min. 15% RTL z automatycznym podziałem zbyt dużych pól</td>
+                    </tr>
                 </tbody>
             </table>
         </div>
@@ -557,7 +577,30 @@
             </div>
         </div>
 
-        <!-- 4. KOSZTORYS I PRZEWAGA RYNKOWA -->
+        <!-- 4. PROSTOTA OBSŁUGI DLA ROLNIKA I BEZPIECZEŃSTWO -->
+        <div class="section-card">
+            <h3 class="section-heading">🛡️ <span data-i18n="sec_farmer_ops">Prostota Obsługi i Bezpieczeństwo Lotu</span></h3>
+            <div class="use-cases-grid">
+                <div class="use-case-item">
+                    <h4>💾 <span data-i18n="ops1_title">Wgrywanie USB / MicroSD</span></h4>
+                    <p data-i18n="ops1_desc">Brak wymogu internetu w polu. Plan wgrywany z komputera kablem lub kartą SD. Raporty PDF i zdjęcia 4K zapisywane wprost na karcie pamięci.</p>
+                </div>
+                <div class="use-case-item">
+                    <h4>🚀 <span data-i18n="ops2_title">Start Skąd Chcesz</span></h4>
+                    <p data-i18n="ops2_desc">Postaw drona na drodze, miedzy lub masce pickupa. Dron wznosi się pionowo na bezpieczne 40m, sam dolatuje na pole i po misji ląduje w punkcie startu (RTL).</p>
+                </div>
+                <div class="use-case-item">
+                    <h4>🟢 <span data-i18n="ops3_title">Blokada GPS i Dioda Statusowa</span></h4>
+                    <p data-i18n="ops3_desc">Silniki zablokowane do osiągnięcia 3D Fix (min. 16 satelitów). Duża dioda LED sygnalizuje stan (Czerwony = blokada/szukanie, Zielony = GPS locked, start dozwolony).</p>
+                </div>
+                <div class="use-case-item">
+                    <h4>🔋 <span data-i18n="ops4_title">Twardy Bilans Baterii (15% Rezerwy)</span></h4>
+                    <p data-i18n="ops4_desc">Planer automatycznie sumuje dolot, siatkę, manewry LED i powrót. Jeśli pole wymaga >85% energii, aplikacja samoczynnie dzieli zadanie na dwa bezpieczne loty.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 5. KOSZTORYS I PRZEWAGA RYNKOWA -->
         <div class="section-card">
             <h3 class="section-heading">💰 <span data-i18n="sec_cost">Ekonomia i Przewaga Rynkowa</span></h3>
             <div class="cost-comparison">
@@ -625,6 +668,20 @@
                 cat_nav: "Awionika",
                 param_fc_soft: "Kontroler i Autopilot",
                 param_sensors: "Nawigacja i pułap",
+                cat_ops: "Logistyka i Bezpieczeństwo",
+                param_mission_upload: "Wgrywanie planu i raporty",
+                param_start_mode: "Start i tranzyt",
+                param_gps_lock: "Blokada GPS i sygnalizator",
+                param_battery_reserve: "Bilans baterii w planerze",
+                sec_farmer_ops: "Prostota Obsługi i Bezpieczeństwo Lotu",
+                ops1_title: "Wgrywanie USB / MicroSD",
+                ops1_desc: "Brak wymogu internetu w polu. Plan wgrywany z komputera kablem lub kartą SD. Raporty PDF i zdjęcia 4K zapisywane wprost na karcie pamięci.",
+                ops2_title: "Start Skąd Chcesz",
+                ops2_desc: "Postaw drona na drodze, miedzy lub masce pickupa. Dron wznosi się pionowo na bezpieczne 40m, sam dolatuje na pole i po misji ląduje w punkcie startu (RTL).",
+                ops3_title: "Blokada GPS i Dioda Statusowa",
+                ops3_desc: "Silniki zablokowane do osiągnięcia 3D Fix (min. 16 satelitów). Duża dioda LED sygnalizuje stan (Czerwony = blokada/szukanie, Zielony = GPS locked, start dozwolony).",
+                ops4_title: "Twardy Bilans Baterii (15% Rezerwy)",
+                ops4_desc: "Planer automatycznie sumuje dolot, siatkę, manewry LED i powrót. Jeśli pole wymaga >85% energii, aplikacja samoczynnie dzieli zadanie na dwa bezpieczne loty.",
                 sec_ai_logic: "Jak Dron Autonomicznie Podejmuje Decyzje?",
                 ai_logic_desc: "Dwuetapowa procedura: wstępne wykrycie termowizyjne + doświetlenie LED i weryfikacja kamerą kolorową RGB:",
                 step1_title: "Skan Termowizyjny",
@@ -677,6 +734,20 @@
                 cat_nav: "Avionics",
                 param_fc_soft: "Flight Controller & Firmware",
                 param_sensors: "Navigation & Terrain",
+                cat_ops: "Operations & Safety",
+                param_mission_upload: "Mission Upload & Reports",
+                param_start_mode: "Launch & Transit",
+                param_gps_lock: "GPS Lock & Status LED",
+                param_battery_reserve: "Planner Battery Budget",
+                sec_farmer_ops: "Farmer-Friendly Operations & Safety",
+                ops1_title: "USB / MicroSD Upload",
+                ops1_desc: "No field internet needed. Upload missions via USB cable or MicroSD card. PDF damage reports and 4K photos saved directly on the card.",
+                ops2_title: "Launch from Anywhere",
+                ops2_desc: "Set the drone down on a dirt road, field margin, or truck hood. Climbs vertically to 40m, transits to the field autonomously, and returns to launch (RTL).",
+                ops3_title: "GPS Pre-Arm Lock & LED Beacon",
+                ops3_desc: "Motors remain safely locked until 3D GPS Fix (min 16 satellites). High-visibility LED beacon indicates status (Red = searching/locked, Green = GPS locked, ready).",
+                ops4_title: "Enforced 15% Battery Reserve",
+                ops4_desc: "Planner calculates transit, grid, deterrence, and return. If the field requires >85% capacity, it automatically splits it into two safe flights.",
                 sec_ai_logic: "How Autonomous Decision Making Works",
                 ai_logic_desc: "Two-stage verification loop: wide-area thermal cueing + downward LED spotlight and high-res RGB confirmation:",
                 step1_title: "Thermal Scouting",
@@ -729,6 +800,20 @@
                 cat_nav: "Авіоніка",
                 param_fc_soft: "Контролер і Автопілот",
                 param_sensors: "Навігація та висота",
+                cat_ops: "Логістика та Безпека",
+                param_mission_upload: "Завантаження місії та звіти",
+                param_start_mode: "Старт та транзит",
+                param_gps_lock: "Блокування GPS та LED-індикатор",
+                param_battery_reserve: "Баланс батареї у планері",
+                sec_farmer_ops: "Простота для Агронома та Безпека",
+                ops1_title: "Завантаження USB / MicroSD",
+                ops1_desc: "Без потреби в інтернеті в полі. План завантажується кабелем або карткою пам'яті. PDF-звіти та фотографії 4K зберігаються прямо на карті.",
+                ops2_title: "Старт з Будь-якого Місця",
+                ops2_desc: "Поставте дрон на дорозі, межі чи капоті пікапа. Дрон піднімається на безпечні 40м, сам летить на поле і після місії повертається точно назад (RTL).",
+                ops3_title: "Блокування GPS та Статусний LED",
+                ops3_desc: "Двигуни заблоковані до отримання 3D Fix (мін. 16 супутників). Яскравий LED сигналізує стан (Червоний = пошук, Подвійний зелений = GPS захоплено, старт дозволено).",
+                ops4_title: "Жорсткий Баланс Батареї (15% Резерву)",
+                ops4_desc: "Планер точно сумує доліт, сітку, маневри світла та повернення. Якщо поле вимагає >85% енергії, планер автоматично ділить його на два безпечні польоти.",
                 sec_ai_logic: "Як Дрон Автономно Приймає Рішення?",
                 ai_logic_desc: "Двоетапний цикл верифікації: виявлення тепловізором + LED-підсвічування та RGB-підтвердження:",
                 step1_title: "Тепловізійний Скан",
@@ -781,6 +866,20 @@
                 cat_nav: "Авионика",
                 param_fc_soft: "Контроллер и прошивка",
                 param_sensors: "Навигация и высота",
+                cat_ops: "Логистика и Безопасность",
+                param_mission_upload: "Загрузка миссии и отчеты",
+                param_start_mode: "Старт и транзит",
+                param_gps_lock: "Блокировка GPS и статус-LED",
+                param_battery_reserve: "Баланс батареи в планере",
+                sec_farmer_ops: "Простота для Фермера и Безопасность",
+                ops1_title: "Загрузка USB / MicroSD",
+                ops1_desc: "Интернет в поле не требуется. План загружается кабелем или через MicroSD. Отчеты PDF и фото 4K сохраняются прямо на карте памяти.",
+                ops2_title: "Старт из Любой Точки",
+                ops2_desc: "Поставьте дрон на проселочной дороге, меже или капоте авто. Взлетает на 40м, сам долетает до поля и после облета возвращается в точку взлета (RTL).",
+                ops3_title: "Блокировка GPS и Индикатор",
+                ops3_desc: "Двигатели заблокированы до 3D Fix (мин. 16 спутников). Яркий LED отображает статус (Красный = поиск/блок, Двойной зеленый = GPS захвачен, старт разрешен).",
+                ops4_title: "Жесткий Баланс Батареи (15% Резерва)",
+                ops4_desc: "Планер суммирует подлет, сетку, работу прожектора и возврат. Если поле требует >85% заряда, программа автоматически делит задачу на два безопасных полета.",
                 sec_ai_logic: "Как Дрон Автономно Принимает Решения?",
                 ai_logic_desc: "Двухэтапный цикл верификации: тепловое обнаружение + LED-прожектор и RGB-подтверждение:",
                 step1_title: "Тепловой Скан",
